@@ -1,0 +1,111 @@
+$pr: pr;
+$primary: #54b689;
+
+html {
+    body {
+    --#{$pr}-bg: white;
+    --#{$pr}-sbg: #fafafa;
+    --#{$pr}-text: #4e4e4e;
+    --#{$pr}-cbtn: #4e4e4e;
+    --#{$pr}-cbtnH: #292929;
+    --#{$pr}-ltext: rgb(0,0,0,0.6);
+    --#{$pr}-stext: #292929;
+    // --#{$pr}-service-btn: ;
+
+    --#{$pr}-tb: rgba(0,0,0,0.1);
+        background: var(--#{$pr}-bg);
+    }
+}
+body.dark {
+    --#{$pr}-bg: #111821 !important;
+    --#{$pr}-sbg: #151e29 !important;
+    --#{$pr}-text: rgb(255,255,255,0.7);
+    --#{$pr}-cbtn: #384f6c;
+    --#{$pr}-cbtnH: #415c7c;
+    --#{$pr}-ltext: rgba(255, 255, 255, 0.6);
+    --#{$pr}-stext:rgb(255,255,255,0.95);
+    --#{$pr}-tb: rgba(255,255,255,0.1);
+    .main-wrapper > section:first-child {
+        background: var(--#{$pr}-bg);
+    }
+    .main-wrapper>.cta-section {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: none !important;
+}
+    .header {
+	    scrollbar-color: rgba(255, 255, 255, 0.1) #1e2a3a !important;
+
+        background: #1e2a3a !important;
+        box-shadow: none;
+        &::-webkit-scrollbar {
+            background-color: #1e2a3a;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .link {
+            margin-left: 5px;
+            cursor: pointer;
+            display: block;
+            padding: 0.5rem 1rem;
+            width: 100% !important;
+            color: var(--#{$pr}-text);
+            display: flex;
+            transition: color 0.3s ease-in-out;
+            align-items: center !important;
+            &:hover {
+                color: var(--#{$pr}-stext);
+            }
+            &.active {
+                color: lighten($color: $primary, $amount: 10%);
+            }
+            
+    
+            
+        }
+        .custom-btn {
+            background: $primary;
+            &:hover {
+                background: darken($color: $primary, $amount: 10%);
+            }
+        }
+.more-pages {
+    background: var(--#{$pr}-bg) !important;
+    li:hover {
+			background:$primary !important;
+
+    }
+}
+.switch {
+    border-color: $primary;
+    background: var(--#{pr}-sbg);
+    &-btn {
+        background: $primary;
+    }
+}
+        .social-list {
+            margin: 0px;
+            li {
+                a {
+                    color: var(--#{$pr}-stext) !important;
+                    background: $primary !important;
+                    
+                    &:hover {
+                        background: darken($primary, 20%) !important;
+                        color: var(--#{$pr}-stext) !important;
+                        
+                    }
+                }
+            }
+        }
+    }
+    .simplebar-scrollbar:before {
+        
+        background: #38506caf !important;
+        
+    }
+    
+    
+}
+
+

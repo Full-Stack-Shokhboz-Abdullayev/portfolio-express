@@ -1,0 +1,151 @@
+.fa-1_5x {
+	font-size: 1.575rem;
+}
+.container-contact2 {
+	padding: 20px;
+	width: 100%;
+	align-items: center;
+	form {
+		display: block;
+		margin: auto;
+		margin-top: 50px;
+		width: 600px;
+		div.wrap-input2,
+		input,
+		textarea {
+			width: 100%;
+		}
+		button {
+			display: block;
+			margin: auto;
+		}
+		.select {
+			.btn {
+				width: 38%;
+			}
+			.options {
+				transform: translateY(-100%);
+				transition: all 0.3s ease-in-out;
+				opacity: 0;
+				pointer-events: none;
+				&.opened {
+					opacity: 1;
+					pointer-events: all;
+					transform: translateY(0);
+				}
+				width: 62%;
+				span {
+					padding: 10px 15px;
+					cursor: pointer;
+					color: darken($color: $primary, $amount: 20%);
+					background: transparent !important;
+				}
+			}
+		}
+	}
+}
+form .btn {
+	background-color: $primary;
+	&:hover {
+		background-color: darken($color: $primary, $amount: 20%) !important;
+	}
+}
+.wrap-input2:not(.newsletter) {
+	margin-bottom: 40px;
+}
+div.wrap-input2 {
+	position: relative;
+
+	.grey {
+		height: 2px;
+		background: rgb(195, 195, 195);
+		width: 100%;
+		display: block;
+		left: 0;
+		bottom: 0px;
+		position: absolute;
+	}
+	.cword {
+		font-weight: 500;
+		position: absolute;
+		top: 10px;
+		pointer-events: none;
+		transition: 0.3s ease-in-out all;
+		.required {
+			color: red;
+		}
+	}
+	.slide {
+		height: 2px;
+		background: linear-gradient(
+			to right,
+			lighten($primary, 10%),
+			darken($primary, 10%)
+		);
+		width: 0%;
+		transition: 0.3s ease-in-out all;
+		display: block;
+		left: 0;
+		bottom: 0px;
+		position: absolute;
+	}
+	textarea {
+		min-height: 80px;
+		max-height: 400px;
+	}
+
+	input,
+	textarea {
+		background: transparent !important;
+
+		padding: 10px 0px;
+		color: var(--#{$pr}-Stext);
+		&:focus {
+			& ~ .slide {
+				width: 100%;
+			}
+			& ~ .cword {
+				transform: translateY(-30px);
+				color: var(--#{pr}-stext);
+			}
+		}
+
+		outline: none;
+		border: none;
+	}
+	&.filled {
+		.slide {
+			width: 100%;
+		}
+		.cword {
+			transform: translateY(-30px);
+		}
+	}
+}
+
+@media (max-width: 660px) {
+	form {
+		width: 500px !important;
+	}
+}
+@media (max-width: 560px) {
+	form {
+		width: 400px !important;
+	}
+}
+@media (max-width: 460px) {
+	form {
+		width: 98% !important;
+	}
+	body .main-wrapper .contact2-form-btn {
+		width: 75% !important;
+	}
+}
+@media (max-width: 360px) {
+	form {
+		width: 100% !important;
+	}
+	body .main-wrapper .contact2-form-btn {
+		width: 75% !important;
+	}
+}

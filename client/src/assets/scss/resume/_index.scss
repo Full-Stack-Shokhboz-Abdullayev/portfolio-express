@@ -1,0 +1,138 @@
+.resume-section-heading {
+	position: relative;
+	padding-left: 1rem;
+	font-size: 1.125rem;
+	letter-spacing: 0.15rem;
+	color: $primary;
+	&::before {
+		content: "";
+		display: inline-block;
+		width: 5px;
+		height: 100%;
+		background: $primary;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+}
+.item-title {
+	font-size: 1rem;
+}
+.resume-wrapper {
+	a.resume-link:hover {
+		color: $primary !important;
+	}
+	p,
+	li {
+		font-size: 0.875rem;
+	}
+	li svg {
+		font-size: 1rem !important;
+	}
+	.resume-contact {
+		border-left: 1px solid rgba(0, 0, 0, 0.08);
+		font-size: 0.75rem !important;
+		.resume-link {
+			font-size: 0.75rem !important;
+		}
+	}
+}
+.websites {
+	width: 200px !important;
+}
+
+.media-body {
+	flex: 1;
+}
+.resume-wrapper {
+	border: 1px solid rgba(0, 0, 0, 0.025);
+}
+.resume-name {
+	font-size: 2.75rem;
+	font-weight: 700;
+	letter-spacing: 0.2rem;
+	color: $primary;
+}
+.resume-tagline {
+	font-size: 1.25rem;
+	font-weight: 300;
+}
+
+@media(max-width: 1275px) {
+	.resume-name {
+		font-size: 2.25rem !important;
+	}
+}
+@media(max-width: 1205px) {
+	.resume-name {
+		font-size: 2rem !important;
+	}
+}
+@media(max-width: 1160px) {
+	.resume-name {
+		font-size: 1.75rem !important;
+	}
+}
+@media(max-width: 1090px) {
+	.resume-name {
+		font-size: 1.50rem !important;
+	}
+	.resume-tagline {
+		font-size: 1.10rem !important;
+
+	}
+}
+@media(max-width: 1050px) {
+	.resume-name {
+		font-size: 2rem !important;
+	}
+	.resume-tagline {
+		font-size: 1.25rem !important;
+
+	}
+}
+@media(max-width: 815px) {
+	.resume-name {
+		font-size: 1.75rem !important;
+	}
+}
+@media(max-width: 767px) {
+	.resume-name {
+		font-size: 2rem !important;
+	}
+}
+@media(max-width: 577px) {
+	.resume-name {
+		font-size: 1.75rem !important;
+
+	}
+}
+@media(max-width: 528px) {
+	.resume-name {
+		font-size: 1.5rem !important;
+	}
+}
+@media(max-width: 480px) {
+	.resume-name {
+		letter-spacing: 0.1rem;
+		font-size: 1.25rem !important;
+
+	}
+	.resume-tagline {
+		font-size: 1rem !important;
+	}
+}
+@media(max-width: 402px) {
+	.resume-wrapper {
+		padding: 2rem !important;
+	}
+}
+@media(max-width: 370px) {
+	.resume-name {
+		font-size: 1rem !important;
+		letter-spacing: 0.05rem !important;
+	}
+	.resume-tagline {
+		font-size: 0.875rem !important;
+	}
+}

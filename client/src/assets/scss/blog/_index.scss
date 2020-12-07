@@ -1,0 +1,41 @@
+
+.blog .my-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+body .main-wrapper .blog-media {
+    width: 300px !important;   
+}
+@media (max-width: 1050px) {
+    .blog .signup-form {
+        width: 100% !important;   
+    }
+}
+@media (max-width: 735px) {
+    .blog .heading {
+        font-size: 1.75rem !important;
+    }
+}
+@media (max-width: 640px) {
+    .blog .heading {
+        font-size: 1.5rem !important;
+    }
+}
+@media (max-width: 360px) {
+    .blog .signup-form {
+        flex-direction: column !important;
+        button {
+            margin-top: 10px;
+        }
+        .wrap-input2 {
+            width: 100% !important;
+            margin: 0 !important;
+            input {
+                width: 100% !important;
+                outline: none !important;
+            }
+        }
+    }
+}

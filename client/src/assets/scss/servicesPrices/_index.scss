@@ -1,0 +1,112 @@
+.table-bordered {
+	border: 1px solid #a9a9a9;
+}
+.pricing-table .pricing-desc-row {
+	vertical-align: inherit;
+}
+.theme-bg-light {
+	background: var(--#{$pr}-sbg) !important;
+}
+.pricing-table .price-number {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.pricing-table tbody th {
+	background: var(--#{$pr}-sbg);
+	padding: 1rem;
+	width: 30%;
+	font-size: 0.875rem;
+}
+.pricing-table tfoot td {
+	padding: 1rem;
+	text-align: center;
+}
+thead {
+	display: table-header-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+table {
+	// border-collapse: separate;
+	text-indent: initial;
+	border-spacing: 2px;
+}
+.more-pages {
+	background: darken($color: $primary, $amount: 20%);
+}
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+	a.btn {
+		background-color: $primary !important;
+
+		&:hover {
+			background-color: darken($color: $primary, $amount: 20%) !important;
+		}
+	}
+}
+tr {
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+.table-bordered thead th,
+.table-bordered thead td {
+	border-bottom-width: 2px;
+}
+.table-bordered th,
+.table-bordered td {
+	border-color: var(--#{$pr}-tb);
+}
+.pricing-table tbody td {
+	padding: 1rem;
+	width: 23.3333333%;
+	text-align: center;
+	font-size: 0.875rem;
+}
+.pricing-table th {
+	display: table-cell !important;
+}
+.single-col-max-width {
+	max-width: 820px;
+}
+.faq-accordion .card-title {
+	position: relative;
+	padding-right: 2rem;
+	font-size: 1rem;
+}
+.faq-accordion .card-title .svg-inline--fa {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.heading {
+	font-size: 2rem !important;
+	font-weight: bold !important;
+}
+.faq-accordion .card-toggle {
+	color: var(--#{$pr}-text);
+	text-decoration: none;
+	display: block;
+	font-weight: bold;
+	&:hover {
+		color: var(--#{$pr}-stext) !important;
+	}
+}
+.card-header:first-child {
+	border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+.card-header {
+	cursor: pointer;
+}
+.pricing-table .pricing-package-title {
+	font-size: 1rem;
+	color: #54b689;
+	text-align: center;
+	padding: 1rem;
+}
+.pricing-table td,
+.pricing-table th {
+	display: table-cell !important;
+}
