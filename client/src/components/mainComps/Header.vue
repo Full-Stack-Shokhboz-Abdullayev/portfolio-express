@@ -61,11 +61,13 @@
 						class="navbar-nav d-flex flex-column align-items-center text-left"
 					>
 						<router-link
+							:to="{name: 'about'}"
 							exact
 							exact-active-class="active"
 							tag="li"
 							class="link"
-							:to="{ name: 'about' }"
+							@click.native="hideNav"
+							
 						>
 							<svg
 								class="svg-inline--fa fa-user fa-w-14 fa-fw mr-2"
@@ -87,11 +89,12 @@
 							<b>About Me</b>
 						</router-link>
 						<router-link
+							:to="{name: 'projects'}"
 							exact
 							exact-active-class="active"
 							tag="li"
 							class="link"
-							:to="{ name: 'projects' }"
+							@click.native="hideNav"
 						>
 							<svg
 								class="svg-inline--fa fa-laptop-code fa-w-20 fa-fw mr-2"
@@ -112,11 +115,12 @@
 							<b>Projects</b>
 						</router-link>
 						<router-link
+							:to="{name: 'servicesPricing'}"
 							exact
 							exact-active-class="active"
 							tag="li"
 							class="link"
-							:to="{ name: 'servicesPricing' }"
+							@click.native="hideNav"
 						>
 							<svg
 								class="svg-inline--fa fa-briefcase fa-w-16 fa-fw mr-2"
@@ -137,11 +141,12 @@
 							<b>Services & Pricing</b>
 						</router-link>
 						<router-link
+							:to="{name: 'resume'}"
 							exact
 							exact-active-class="active"
 							tag="li"
 							class="link"
-							:to="{ name: 'resume' }"
+							@click.native="hideNav"
 						>
 							<svg
 								class="svg-inline--fa fa-file-alt fa-w-12 fa-fw mr-2"
@@ -162,11 +167,12 @@
 							<b>Resume (CV)</b>
 						</router-link>
 						<router-link
+							:to="{name: 'blog'}"
 							exact
 							exact-active-class="active"
 							tag="li"
 							class="link"
-							:to="{ name: 'blog' }"
+							@click.native="hideNav"
 						>
 							<svg
 								class="svg-inline--fa fa-blog fa-w-16 fa-fw mr-2"
@@ -187,11 +193,12 @@
 							<b>Blog</b>
 						</router-link>
 						<router-link
+							:to="{name: 'contact'}"
 							exact
 							exact-active-class="active"
 							tag="li"
 							class="link"
-							:to="{ name: 'contact' }"
+							@click.native="hideNav"
 						>
 							<svg
 								class="svg-inline--fa fa-envelope-open-text fa-w-16 fa-fw mr-2"
@@ -295,6 +302,13 @@ export default {
 	},
 
 	methods: {
+		hideNav() {
+			this.navOpened = false;
+			const nav = document.querySelector('nav');
+			setTimeout(() => {
+					nav.classList.add('my-d');
+				}, 300);
+		},
 		toggleNav() {
 			this.navOpened = !this.navOpened;
 			const nav = document.querySelector('nav');
