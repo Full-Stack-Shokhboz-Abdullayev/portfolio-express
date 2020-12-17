@@ -1,11 +1,12 @@
 {
-  "name": "Vue-Router",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
@@ -13,10 +14,12 @@
     "core-js": "^3.6.5",
     "gsap": "^3.5.1",
     "isotope-layout": "^3.0.6",
+    "nprogress": "^0.2.0",
     "simplebar-vue": "^1.6.0",
     "v-lazy-image": "^1.4.0",
     "v-show-slide": "^1.8.3",
     "vue": "^2.6.11",
+    "vue-i18n": "^8.17.3",
     "vue-rellax": "^0.2.0",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.2.0",
@@ -26,6 +29,7 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@intlify/vue-i18n-loader": "^1.0.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "^4.5.6",
@@ -38,6 +42,7 @@
     "node-sass": "^4.14.1",
     "prettier": "^2.2.1",
     "sass-loader": "^10.0.2",
+    "vue-cli-plugin-i18n": "^1.0.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

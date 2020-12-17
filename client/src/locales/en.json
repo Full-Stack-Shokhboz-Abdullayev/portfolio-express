@@ -1,0 +1,27 @@
+{
+  "about": {
+    "description": ""
+  },
+  "header": {
+    "links": {
+      "about": "About",
+      "blog": "Blog",
+      "contact": "Contact",
+      "more": "Explore More",
+      "projects": "Projects",
+      "resume": "Resume (CV)",
+      "services": "Services & Pricing"
+    },
+    "overview": "Hello! My name is Shokhboz and I'm a skilled software engineer. Welcome to my personal web site."
+  },
+  "owner": "Shokhboz Abdullayev",
+  "regulars": {
+    "hire": "Hire Me",
+    "selectLang": "Select Preferred Language"
+  },
+  "themes": {
+    "dark": "Dark",
+    "light": "Light",
+    "modeWord": "Mode"
+  }
+}

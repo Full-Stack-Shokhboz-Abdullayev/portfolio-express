@@ -19,7 +19,25 @@
 	position: absolute !important;
 	top: 0 !important;
 }
+
 .header {
+	&-img {
+		border-radius: 100% !important;
+		border: none !important;
+		outline: none !important;
+		img {
+			outline: none !important;
+
+			border: none !important;
+		}
+		.filter {
+			border-radius: 100% !important;
+			top: -1px !important;
+			left: -1px !important;
+			height: calc(100% + 2px) !important;
+			width: calc(100% + 2px) !important;
+		}
+	}
 	.burger {
 		display: none;
 		justify-content: space-around;
@@ -335,7 +353,6 @@ $switchColor: rgb(231, 231, 231);
 	}
 }
 
-
 @media (max-width: 455px) {
 	.burger {
 		transform: scale(0.7);
@@ -348,5 +365,19 @@ $switchColor: rgb(231, 231, 231);
 	.burger {
 		left: 5px !important;
 	}
-	
+}
+
+#nprogress .bar {
+	background: linear-gradient(
+		to right,
+		lighten($primary, 10%),
+		darken($primary, 10%)
+	);
+}
+#nprogress .peg {
+	box-shadow: 0 0 10px $primary, 0 0 5px $primary;
+}
+#nprogress .spinner-icon {
+	border-top-color: $primary;
+	border-left-color: $primary;
 }

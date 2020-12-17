@@ -1,0 +1,27 @@
+{
+  "about": {
+    "description": ""
+  },
+  "header": {
+    "links": {
+      "about": "Men Haqimda",
+      "blog": "Blog",
+      "contact": "Bog'lanish",
+      "more": "Ko'proq",
+      "projects": "Loyihalar",
+      "resume": "Rezyume",
+      "services": "Xizmat va Narxlar"
+    },
+    "overview": "Salom! Mening ismim Shoxboz va men tajribali dasturchiman. Mening shaxsiy saytimga xush kelibsiz."
+  },
+  "owner": "Shoxboz Abdullayev",
+  "regulars": {
+    "hire": "Ishga Olmoq",
+    "selectLang": "Afzal Ko'rgan Tilni Tanlang "
+  },
+  "themes": {
+    "dark": "Tungi",
+    "light": "Kungi",
+    "modeWord": "Rejim"
+  }
+}

@@ -16,10 +16,8 @@
 							I'm a junior full stack developer with a year of
 							experince using Vue.js and Django Rest Framework to
 							build awesome, reliable, responsive, automated,
-							
 							attractive Single Page Applications. Just forget
-							about old reloading web sites.
-							See further in my
+							about old reloading web sites. See further in my
 							<router-link
 								exact
 								tag="a"
@@ -534,7 +532,9 @@
 				<h2 class="section-title font-weight-bold mb-5 observable">
 					Featured Projects
 				</h2>
-				<div class="d-flex justify-content-center align-items-center flex-wrap">
+				<div
+					class="d-flex justify-content-center align-items-center flex-wrap"
+				>
 					<div
 						v-for="(project, index) in projects"
 						:key="index"
@@ -543,7 +543,7 @@
 						@mouseenter="onMouseEnter($event, index)"
 						@mousemove="onMouseMove($event, index)"
 						ref="skillcard"
-						class="card-wrapper p-4"
+						class="card-wrapper py-5 px-4"
 					>
 						<div class="observable">
 							<div class="card fafa about-card project-card">
@@ -653,9 +653,11 @@
 				<h2 class="section-title font-weight-bold mb-5 observable">
 					Latest Blog Posts
 				</h2>
-				<div class="d-flex justify-content-around align-items-center flex-wrap">
+				<div
+					class="d-flex justify-content-around align-items-center flex-wrap"
+				>
 					<div
-						class=" mx-2 mb-5 observable"
+						class="mx-2 mb-5 observable"
 						v-rellax="{
 							speed: false
 						}"
@@ -725,18 +727,18 @@
 
 <script>
 import intersectionAnimation from '../components/jsComponents/intersectionAnimtations';
-import {BrowserDetect} from '../components/jsComponents/browserDetect'
+import { BrowserDetect } from '../components/jsComponents/browserDetect';
 import { mapGetters } from 'vuex';
 import VLazyImage from 'v-lazy-image';
 import me from '@/assets/me.jpg';
 import me2 from '@/assets/me2.jpg';
 // eslint-disable no-mixed-spaces-and-tabs
 export default {
+	
 	data() {
 		return {
 			status: 'hidden',
-			browser: BrowserDetect.browser,
-			
+			browser: BrowserDetect.browser
 		};
 	},
 	computed: {
@@ -784,7 +786,7 @@ export default {
 		},
 		onMouseLeave(e, index) {
 			let card = document.querySelectorAll('.project-card')[index];
-			if (this.browser === "Chrome") {
+			if (this.browser === 'Chrome') {
 				let btn = document.querySelectorAll('.link-mask')[index],
 					title = document.querySelectorAll('.card-title')[index],
 					img = document.querySelectorAll('.card-img-holder')[index],

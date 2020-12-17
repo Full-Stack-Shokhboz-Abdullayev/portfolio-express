@@ -360,6 +360,25 @@ footer {
   background: #54b689;
 }
 
+.header-img {
+  border-radius: 100% !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.header-img img {
+  outline: none !important;
+  border: none !important;
+}
+
+.header-img .filter {
+  border-radius: 100% !important;
+  top: -1px !important;
+  left: -1px !important;
+  height: calc(100% + 2px) !important;
+  width: calc(100% + 2px) !important;
+}
+
 .header .burger {
   display: none;
   -ms-flex-pack: distribute;
@@ -751,6 +770,21 @@ hr {
   .burger {
     left: 5px !important;
   }
+}
+
+#nprogress .bar {
+  background: -webkit-gradient(linear, left top, right top, from(#78c5a2), to(#40976f));
+  background: linear-gradient(to right, #78c5a2, #40976f);
+}
+
+#nprogress .peg {
+  -webkit-box-shadow: 0 0 10px #54b689, 0 0 5px #54b689;
+          box-shadow: 0 0 10px #54b689, 0 0 5px #54b689;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #54b689;
+  border-left-color: #54b689;
 }
 
 .container {

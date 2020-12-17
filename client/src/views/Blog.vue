@@ -22,7 +22,7 @@
 							type="text"
 							name="email"
 							required
-							@change="validate"
+							
 						/>
 						<div class="grey"></div>
 						<div class="slide"></div>
