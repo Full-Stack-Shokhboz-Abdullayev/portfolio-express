@@ -241,11 +241,11 @@ a:not(.btn):not(.text-l):not(.resume-link):hover {
   color: #317355 !important;
 }
 
-.btn:not(.btn-secondary):not(.btn-secondary-custom):not(.language-btn) {
+.btn:not(.btn-secondary):not(.btn-secondary-custom):not(.language-btn):not(.header-hire) {
   background-color: #54b689;
 }
 
-.btn:not(.btn-secondary):not(.btn-secondary-custom):not(.language-btn):hover {
+.btn:not(.btn-secondary):not(.btn-secondary-custom):not(.language-btn):not(.header-hire):hover {
   background-color: #317355 !important;
 }
 
