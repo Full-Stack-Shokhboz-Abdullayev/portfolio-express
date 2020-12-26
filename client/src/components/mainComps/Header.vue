@@ -227,7 +227,7 @@
 							</li>
 						</ul>
 					</div>
-					<button class="btn btn-block mt-4 custom-btn">
+					<button class="btn btn-block mt-4 custom-btn header-hire">
 						<i class="fa fa-paper-plane" />
 						{{ $t('regulars.hire') }}
 					</button>

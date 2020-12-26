@@ -105,7 +105,7 @@ a:not(.btn):not(.text-l) {
 		color: darken($color: $primary, $amount: 20%) !important;
 	}
 }
-.btn:not(.btn-secondary):not(.btn-secondary-custom):not(.language-btn) {
+.btn:not(.btn-secondary):not(.btn-secondary-custom):not(.language-btn):not(.header-hire) {
 	background-color: $primary;
 	&:hover {
 		background-color: darken($color: $primary, $amount: 20%) !important;
