@@ -150,7 +150,7 @@
 									d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"
 								/>
 							</svg>
-							<b>{{ $t('header.links.resume') }}</b>
+							<b>{{ $t('header.links.resume') }} (CV)</b>
 						</router-link>
 						<router-link
 							:to="{ name: 'blog' }"
@@ -267,11 +267,11 @@
 					<div
 						class="switch-container d-flex justify-content-around flex-column align-items-center"
 					>
-						<h4 class="min entry">
+						<h4 class="min entry mb-3">
 							<i class="fa fa-adjust" /> {{ text }}
 							{{ $t('themes.modeWord') }}
 						</h4>
-						<div class="switch mt-3" @click="onSwitch">
+						<div class="switch" @click="onSwitch">
 							<div class="switch-btn" :class="{ darkOn }" />
 						</div>
 					</div>

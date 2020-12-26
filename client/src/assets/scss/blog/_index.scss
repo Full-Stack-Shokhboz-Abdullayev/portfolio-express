@@ -1,9 +1,14 @@
-
+.blog-lang {
+    text-transform: capitalize;
+}
 .blog .my-row {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+}
+.blog .heading {
+    // text-transform: capitalize;
 }
 body .main-wrapper .blog-media {
     width: 300px !important;   

@@ -2,19 +2,15 @@
 	<div class="bg-contact2 main-wrapper">
 		<section class="cta-section theme-bgs py-5">
 			<div class="container text-center single-col-max-width">
-				<h2 class="heading">Contact</h2>
+				<h2 class="heading">{{$t('header.links.contact')}}</h2>
 				<div class="intro">
+					<i18n tag="div" class="mb-2" path="contact.subtitle1">
+						<template slot="email">
+							<a href="mailto:shokhboz11abdullayev@gmail.com">shokhboz11abdullayev@gmail.com</a>
+						</template>
+					</i18n>
 					<p>
-						Interested in hiring me for your project or just want to
-						say hi? You can fill in the contact form below or send
-						me an email to
-						<a href="mailto:shokhboz11abdullayev@gmail.com">
-							shokhboz11abdullayev@gmail.com
-						</a>
-					</p>
-					<p>
-						Want to get connected? Follow me on the social channels
-						below.
+						{{$t('contact.subtitle2')}}
 					</p>
 					<!-- <p class="m-0"></p>
 					<p class="m-0">We can contact as well.</p> -->
@@ -50,7 +46,7 @@
 					/>
 					<div class="grey"></div>
 					<div class="slide"></div>
-					<div class="cword">Full Name</div>
+					<div class="cword">{{$t('contact.form.fullName')}}</div>
 				</div>
 				<div
 					class="wrap-input2 validate-input"
@@ -66,7 +62,7 @@
 					/>
 					<div class="grey"></div>
 					<div class="slide"></div>
-					<div class="cword">Email</div>
+					<div class="cword">{{$t('contact.form.email')}}</div>
 
 					<span class="focus-input2" data-placeholder="EMAIL" />
 				</div>
@@ -101,7 +97,7 @@
 					/>
 					<div class="grey"></div>
 					<div class="slide"></div>
-					<div class="cword">Message</div>
+					<div class="cword">{{$t('contact.form.message')}}</div>
 
 					<span class="focus-input2" data-placeholder="MESSAGE" />
 				</div>
@@ -109,7 +105,7 @@
 					<div class="wrap-contact2-form-btn">
 						<div class="contact2-form-bgbtn" />
 						<button class="contact2-form-btn btn w-50">
-							Send Your Message
+							{{$t('contact.form.send')}}
 						</button>
 					</div>
 				</div>
@@ -120,6 +116,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import validate from '@/components/jsComponents/validate';
 export default {
 	data() {
 		return {
@@ -134,14 +131,7 @@ export default {
 		};
 	},
 	methods: {
-		validate(e) {
-			const val = e.target.value;
-			if (val === '' || val === null) {
-				e.target.parentElement.classList.remove('filled');
-			} else {
-				e.target.parentElement.classList.add('filled');
-			}
-		},
+		validate,
 		selectService(p) {
 			this.input.package = p;
 		}

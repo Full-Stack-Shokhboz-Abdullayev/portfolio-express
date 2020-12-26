@@ -4,7 +4,7 @@
 	<div class="main-wrapper">
 		<section class="cta-section theme-bgs py-5">
 			<div class="container text-center single-col-max-width">
-				<h2 class="heading mb-3">Online Resume</h2>
+				<h2 class="heading mb-3">{{$t('resume.title')}}</h2>
 				<a
 					class="btn"
 					download=""
@@ -26,7 +26,7 @@
 							d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"
 						/>
 					</svg>
-					Download PDF Version
+					{{$t('resume.download')}}
 				</a>
 			</div>
 			<!--//container-->
@@ -41,10 +41,10 @@
 							class="resume-title col-12 col-md-8 col-lg-8 col-xl-9"
 						>
 							<h2 class="resume-name mb-0 text-uppercase">
-								Shokhboz Abdullayev
+								{{ $t('owner') }}
 							</h2>
 							<div class="resume-tagline mb-3 mb-md-0">
-								Junior Full Stack Developer
+								{{ $t('about.tagline') }}
 							</div>
 						</div>
 						<!--//resume-title-->
@@ -161,14 +161,7 @@
 						/>
 						<div class="media-body text-left">
 							<p class="mb-0">
-								Firstly I was motivated by thinking that
-								programming is an art. I started learning Python
-								in 2019. I used Python to build little programs
-								in order to make my mind run into programming
-								basics. Nowadays I'm using JavaScript as my main
-								language. I have an ability to learn new skills
-								in IT sphere. Searching skills to make what's in
-								purpose. Good at communication. Always online.
+								{{ $t('resume.description') }}
 							</p>
 						</div>
 						<!--//media-body-->
@@ -185,7 +178,7 @@
 								<h3
 									class="text-uppercase resume-section-heading mb-4"
 								>
-									Work Experiences
+									{{ $t('resume.sections.workExperience') }}
 								</h3>
 
 								<div class="item">
@@ -211,7 +204,7 @@
 								<h3
 									class="text-uppercase resume-section-heading mb-4"
 								>
-									Projects
+									{{ $t('resume.sections.projects') }}
 								</h3>
 								<div class="item mb-3">
 									<div
@@ -247,7 +240,7 @@
 								<h3
 									class="text-uppercase resume-section-heading mb-4"
 								>
-									Skills
+									{{ $t('resume.sections.skills') }}
 								</h3>
 								<div class="item">
 									<h4 class="item-title">Technical</h4>
@@ -285,7 +278,7 @@
 								<h3
 									class="text-uppercase resume-section-heading mb-4"
 								>
-									Education
+									{{ $t('resume.sections.education') }}
 								</h3>
 								<ul class="list-unstyled resume-education-list">
 									<li class="mb-3">
@@ -325,7 +318,7 @@
 								<h3
 									class="text-uppercase resume-section-heading mb-4"
 								>
-									Languages
+									{{ $t('resume.sections.languages') }}
 								</h3>
 								<ul class="list-unstyled resume-lang-list">
 									<li class="mb-2">
@@ -353,7 +346,7 @@
 								<h3
 									class="text-uppercase resume-section-heading mb-4"
 								>
-									Interests
+									{{ $t('resume.sections.interests') }}
 								</h3>
 								<ul
 									class="list-unstyled resume-interests-list mb-0"
@@ -376,7 +369,7 @@
 						class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-mutedl"
 					>
 						<li class="list-inline-item mb-lg-0 mr-5">
-							<a class="resume-link" href="#">
+							<a class="resume-link" href="https://github.com/Full-Stack-Shokhboz-Abdullayev/">
 								<svg
 									class="svg-inline--fa fa-github-square fa-w-14 mr-2 fa-2x"
 									data-fa-transform="down-4"
@@ -406,12 +399,12 @@
 									</g></svg
 								><!-- <i class="fab fa-github-square fa-2x mr-2" data-fa-transform="down-4"></i> Font Awesome fontawesome.com --><span
 									class="d-none d-lg-inline-block text-mutedl"
-									>github.com/username</span
+									>github.com/Full-Stack-Shokhboz-Abdullayev</span
 								></a
 							>
 						</li>
 						<li class="list-inline-item mb-lg-0">
-							<a class="resume-link" href="#">
+							<a class="resume-link" href="https://www.linkedin.com/in/shokhboz-abdullayev-8545b01b9/">
 								<svg
 									class="svg-inline--fa fa-linkedin fa-w-14 fa-2x mr-2"
 									data-fa-transform="down-4"
@@ -441,7 +434,7 @@
 									</g></svg
 								><!-- <i class="fab fa-linkedin fa-2x mr-2" data-fa-transform="down-4"></i> Font Awesome fontawesome.com --><span
 									class="d-none d-lg-inline-block text-mutedl"
-									>linkedin.com/in/username</span
+									>linkedin.com/in/shokhboz-abdullayev-8545b01b9</span
 								></a
 							>
 						</li>

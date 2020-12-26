@@ -32,37 +32,43 @@ export default new Vuex.Store({
 				heading: 'Top 3 JavaScript Frameworks',
 				tag:
 					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12 Nov 2020'
+				publishedDate: '12/02/2020',
+				lang: 'English'
 			},
 			{
 				heading: 'Top 3 JavaScript Frameworks',
 				tag:
 					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12 Nov 2020'
+				publishedDate: '12/02/2020',
+				lang: "O'zbek"
 			},
 			{
 				heading: 'Top 3 JavaScript Frameworks',
 				tag:
 					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12 Nov 2020'
+				publishedDate: '12/02/2020',
+				lang: 'English'
 			},
 			{
 				heading: 'Top 3 JavaScript Frameworks',
 				tag:
 					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12 Nov 2020'
+				publishedDate: '12/02/2020',
+				lang: 'Русский'
 			},
 			{
 				heading: 'Top 3 JavaScript Frameworks',
 				tag:
 					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12 Nov 2020'
+				publishedDate: '12/02/2020',
+				lang: 'English'
 			},
 			{
 				heading: 'Top 3 JavaScript Frameworks',
 				tag:
 					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12 Nov 2020'
+				publishedDate: '12/02/2020',
+				lang: 'Русский'
 			}
 		],
 		projects: [

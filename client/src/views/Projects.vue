@@ -4,13 +4,10 @@
 	<div class="main-wrapper projects">
 		<section class="cta-section theme-bgs py-5 fafa">
 			<div class="container text-center single-col-max-width">
-				<h2 class="heading">Projects</h2>
+				<h2 class="heading">{{ $t('header.links.projects') }}</h2>
 				<div class="intro text-snoothy">
 					<p>
-						Welcome to my online portfolio. Lorem ipsum dolor sit
-						amet, consectetuer adipiscing elit. Aenean commodo
-						ligula eget dolor. I'm taking on freelance work at the
-						moment. Want some help building your software?
+						{{ $t('projects.description') }}
 					</p>
 				</div>
 				<a class="btn prj" href="contact.html" target="_blank"
@@ -29,8 +26,7 @@
 							fill="currentColor"
 							d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"
 						></path></svg
-					><!-- <i class="fas fa-paper-plane mr-2"></i> Font Awesome fontawesome.com -->Hire
-					Me</a
+					>{{ $t('regulars.hire') }}</a
 				>
 			</div>
 			<!--//container-->
@@ -49,7 +45,8 @@
 							]"
 							@click="filter(key)"
 						>
-							{{ key }}
+					
+							{{$t(`projects.filters.${key}`)}}
 						</li>
 					</ul>
 				</div>
@@ -72,7 +69,7 @@
 						:key="index"
 					>
 						<div class="card fafa project-card">
-							<div class=" project-media no-gutters">
+							<div class="project-media no-gutters">
 								<div class="col-lg-4 card-img-holder">
 									<img
 										src="@/assets/me.jpg"
@@ -159,25 +156,25 @@ export default {
 			currentLayout: 'fitRows',
 			selected: null,
 			sortOption: 'original-order',
-			filterOption: 'All',
+			filterOption: 'all',
 			option: {
 				itemSelector: '.element-item',
 				layoutMode: 'masonry',
 				getFilterData: {
-					All: function () {
+					all: function () {
 						return true;
 					},
-					'Web Apps': function (el) {
+					'web': function (el) {
 						return el.type.includes('web-apps');
 					},
 
-					'Mobile Apps': function (el) {
+					'mobile': function (el) {
 						return el.type.includes('mobile-apps');
 					},
-					Frontend: function (el) {
+					frontend: function (el) {
 						return el.type.includes('frontend');
 					},
-					Backend: function (el) {
+					backend: function (el) {
 						return el.type.includes('backend');
 					}
 				},
@@ -219,6 +216,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

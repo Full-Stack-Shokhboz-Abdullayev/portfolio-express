@@ -3,11 +3,10 @@
 		<section class="cta-section theme-bgs py-5">
 			<div class="container text-center">
 				<h2 class="heading">
-					A Blog About Software Development And Life
+					{{ $t('blog.title') }}
 				</h2>
 				<div class="intro">
-					Welcome to my blog. Subscribe and get my latest blog posts
-					in your inbox.
+					{{ $t('blog.subtitle') }}
 				</div>
 				<form
 					class="signup-form form-inline justify-content-center pt-3"
@@ -17,16 +16,16 @@
 						data-validate="Valid email is required: ex@abc.xyz"
 					>
 						<input
+							@change="validate"
 							autocomplete="off"
-							class="input2"
+							class="input2 blog-subscription"
 							type="text"
 							name="email"
 							required
-							
 						/>
 						<div class="grey"></div>
 						<div class="slide"></div>
-						<div class="cword">Email</div>
+						<div class="cword">{{$t('contact.form.email')}}</div>
 
 						<span class="focus-input2" data-placeholder="EMAIL" />
 					</div>
@@ -60,16 +59,22 @@
 								</h5>
 								<p class="card-text">
 									{{ blog.tag }}
+									<br />
+									<br />
+									<b class="blog-lang"
+										>{{ $t('blog.language') }}:
+										{{ blog.lang }}</b
+									>
 								</p>
 								<p class="mb-0">
 									<a class="more-link" href="blog-post.html"
-										>Read more →</a
+										>{{ $t('regulars.readMore') }} →</a
 									>
 								</p>
 							</div>
 							<div class="card-footer fafa">
 								<small class="text-muted"
-									>Published at
+									>{{ $t('regulars.published') }}
 									{{ blog.publishedDate }}</small
 								>
 							</div>
@@ -85,16 +90,19 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
+import validate from '@/components/jsComponents/validate';
 export default {
 	computed: {
 		...mapGetters(['blogPosts'])
+	},
+	methods: {
+		validate
 	}
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
 form {
 	margin-top: 20px;
 }
@@ -103,6 +111,7 @@ form {
 	margin-bottom: 5px;
 	input {
 		background: transparent !important;
+		width: 300px;
 	}
 }
 </style>

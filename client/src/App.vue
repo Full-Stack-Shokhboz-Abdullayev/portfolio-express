@@ -3,7 +3,7 @@
 		<app-header></app-header>
 		<transition name="v-router" mode="out-in">
 			<keep-alive max="5">
-				<router-view :setFooter="footerAppear" />
+				<router-view/>
 			</keep-alive>
 		</transition>
 
@@ -29,7 +29,7 @@ export default {
 			return new Date().getFullYear();
 		}
 	},
-	mounted: {}
+
 };
 </script>
 

@@ -67,8 +67,6 @@
 	overflow-x: hidden;
 	scrollbar-color: rgba(0, 0, 0, 0.2) $primary !important;
 	scrollbar-width: thin;
-	left: 0;
-	top: 0%;
 	&::-webkit-scrollbar {
 		width: 7px;
 		background-color: $primary;
@@ -76,6 +74,8 @@
 	&::-webkit-scrollbar-thumb {
 		background-color: rgba(0, 0, 0, 0.2);
 	}
+	left: 0;
+	top: 0%;
 	// box-shadow: inset darken($color: $primary, $amount: 5%) 0px 0px 40px,
 	// 	inset darken($color: $primary, $amount: 15%) 0px 0px 60px;
 	color: white;
@@ -245,7 +245,7 @@ hr {
 	width: 100% !important;
 }
 .min {
-	font-size: 0.875rem !important;
+	font-size: 0.95rem !important;
 	font-weight: bold !important;
 }
 $switchColor: rgb(231, 231, 231);

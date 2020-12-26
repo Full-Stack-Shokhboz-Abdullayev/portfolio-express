@@ -7,35 +7,37 @@
 					<div class="media-body">
 						<!-- <typewriter ref="typewriter" class="type" :interval="20" :style="{visibility: 'visible'}"> -->
 						<h2 class="name font-weight-bold mb-1">
-							Shokhboz Abdullayev
+							{{ $t('owner') }}
 						</h2>
 						<div class="tagline mb-3">
-							Junior Full Stack Developer
+							{{ $t('about.tagline') }}
 						</div>
-						<div class="bio mb-4">
-							I'm a junior full stack developer with a year of
-							experince using Vue.js and Django Rest Framework to
-							build awesome, reliable, responsive, automated,
-							attractive Single Page Applications. Just forget
-							about old reloading web sites. See further in my
-							<router-link
-								exact
-								tag="a"
-								class="link"
-								:to="{ name: 'projects' }"
-							>
-								<span>projects</span>
-							</router-link>
-							or check out my
-							<router-link
-								exact
-								tag="a"
-								class="link"
-								:to="{ name: 'resume' }"
-							>
-								<span>resume</span> </router-link
-							>.
-						</div>
+						<i18n
+							tag="div"
+							path="about.description.all"
+							class="bio mb-4"
+						>
+							<template v-slot:projects>
+								<router-link
+									class="link"
+									exact
+									:to="{ name: 'projects' }"
+									>{{
+										$t('about.description.projects')
+									}}</router-link
+								>
+							</template>
+							<template v-slot:resume>
+								<router-link
+									class="link"
+									exact
+									:to="{ name: 'resume' }"
+									>{{
+										$t('about.description.resume')
+									}}</router-link
+								>
+							</template>
+						</i18n>
 						<!--//bio-->
 						<!-- </typewriter> -->
 						<div class="mb-4">
@@ -61,9 +63,9 @@
 									></path></svg
 								><!-- <i class="fas fa-arrow-alt-circle-right mr-2"></i> Font Awesome fontawesome.com --><span
 									class="d-none d-md-inline"
-									>View</span
+									>{{ $t('regulars.view') }}</span
 								>
-								Projects</router-link
+								{{ $t('header.links.projects') }}</router-link
 							>
 							<router-link
 								exact
@@ -87,9 +89,9 @@
 									></path></svg
 								><!-- <i class="fas fa-file-alt mr-2"></i> Font Awesome fontawesome.com --><span
 									class="d-none d-md-inline"
-									>View</span
+									>{{ $t('regulars.view') }}</span
 								>
-								Resume</router-link
+								{{ $t('header.links.resume') }}</router-link
 							>
 						</div>
 					</div>
@@ -103,8 +105,6 @@
 							src-placeholder=""
 						/>
 						<div class="filter"></div>
-						<!-- <img class="profile-image mb-3 mb-lg-0 ml-lg-5 mr-md-0"
-					 	src="../assets/me2.jpg" alt=""> -->
 					</div>
 				</div>
 			</div>
@@ -114,12 +114,10 @@
 		<section class="overview-section p-3 p-lg-5">
 			<div class="container">
 				<h2 class="section-title font-weight-bold mb-3 observable">
-					What I do
+					{{ $t('about.sections.wid.title') }}
 				</h2>
 				<div class="section-intro mb-5 observable">
-					I have experience with the web for a year building personal
-					projects. Here's the quick overview from what I use to build
-					cool web apps.
+					{{ $t('about.sections.wid.tagline') }}
 				</div>
 				<div class="row">
 					<div class="item observable">
@@ -513,8 +511,7 @@
 								fill="currentColor"
 								d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zM140 300h116v70.9c0 10.7 13 16.1 20.5 8.5l114.3-114.9c4.7-4.7 4.7-12.2 0-16.9l-114.3-115c-7.6-7.6-20.5-2.2-20.5 8.5V212H140c-6.6 0-12 5.4-12 12v64c0 6.6 5.4 12 12 12z"
 							></path></svg
-						><!-- <i class="fas fa-arrow-alt-circle-right mr-2"></i> Font Awesome fontawesome.com -->Services
-						&amp; Pricing
+						>{{ $t('header.links.services') }}
 					</router-link>
 				</div>
 			</div>
@@ -530,7 +527,7 @@
 		<section class="featured-section p-3 p-lg-5">
 			<div class="container">
 				<h2 class="section-title font-weight-bold mb-5 observable">
-					Featured Projects
+					{{ $t('about.sections.featured') }}
 				</h2>
 				<div
 					class="d-flex justify-content-center align-items-center flex-wrap"
@@ -636,9 +633,10 @@
 							<path
 								fill="currentColor"
 								d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zM140 300h116v70.9c0 10.7 13 16.1 20.5 8.5l114.3-114.9c4.7-4.7 4.7-12.2 0-16.9l-114.3-115c-7.6-7.6-20.5-2.2-20.5 8.5V212H140c-6.6 0-12 5.4-12 12v64c0 6.6 5.4 12 12 12z"
-							></path></svg
-						><!-- <i class="fas fa-arrow-alt-circle-right mr-2"></i> Font Awesome fontawesome.com -->View
-						Projects</router-link
+							></path>
+						</svg>
+						{{ $t('regulars.view') }}
+						{{ $t('header.links.projects') }}</router-link
 					>
 				</div>
 			</div>
@@ -651,7 +649,7 @@
 		<section class="latest-blog-section p-3 p-lg-5">
 			<div class="container">
 				<h2 class="section-title font-weight-bold mb-5 observable">
-					Latest Blog Posts
+					{{ $t('about.sections.lbp') }}
 				</h2>
 				<div
 					class="d-flex justify-content-around align-items-center flex-wrap"
@@ -661,7 +659,7 @@
 						v-rellax="{
 							speed: false
 						}"
-						v-for="(i, index) in latestPosts"
+						v-for="(blog, index) in latestPosts"
 						:key="index"
 					>
 						<div class="card blog-post-card">
@@ -673,21 +671,24 @@
 							<div class="card-body">
 								<h5 class="card-title">
 									<a class="theme-link" href="blog-post.html">
-										{{ i.heading }}
+										{{ blog.heading }}
 									</a>
 								</h5>
 								<p class="card-text">
-									{{ i.tag }}
+									{{ blog.tag }}
+									<br>
+									<br>
+									<b class="blog-lang">Language: {{blog.lang}}</b>
 								</p>
 								<p class="mb-0">
 									<a class="more-link" href="blog-post.html"
-										>Read more →</a
+										>{{$t('regulars.readMore')}} →</a
 									>
 								</p>
 							</div>
 							<div class="card-footer">
 								<small class="text-muted"
-									>Published in {{ i.publishedDate }}</small
+									>{{$t('regulars.published')}} {{ blog.publishedDate }}</small
 								>
 							</div>
 						</div>
@@ -713,8 +714,8 @@
 								fill="currentColor"
 								d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zM140 300h116v70.9c0 10.7 13 16.1 20.5 8.5l114.3-114.9c4.7-4.7 4.7-12.2 0-16.9l-114.3-115c-7.6-7.6-20.5-2.2-20.5 8.5V212H140c-6.6 0-12 5.4-12 12v64c0 6.6 5.4 12 12 12z"
 							></path></svg
-						><!-- <i class="fas fa-arrow-alt-circle-right mr-2"></i> Font Awesome fontawesome.com -->View
-						Blog</router-link
+						>{{ $t('regulars.view') }}
+						{{ $t('header.links.blog') }}</router-link
 					>
 				</div>
 			</div>
@@ -734,7 +735,6 @@ import me from '@/assets/me.jpg';
 import me2 from '@/assets/me2.jpg';
 // eslint-disable no-mixed-spaces-and-tabs
 export default {
-	
 	data() {
 		return {
 			status: 'hidden',

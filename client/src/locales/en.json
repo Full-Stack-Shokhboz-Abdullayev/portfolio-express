@@ -1,6 +1,42 @@
 {
   "about": {
-    "description": ""
+    "description": {
+      "all": "I'm a junior full stack developer with a year of experience using Vue.js and Django Rest Framework to build awesome, reliable, responsive, automated, attractive Single Page Applications. Just forget about old reloading web sites. See further in my {projects} or check out my {resume}.",
+      "projects": "projects",
+      "resume": "resume"
+    },
+    "sections": {
+      "featured": "Featured Projects",
+      "lbp": "Latest Blog Posts",
+      "wid": {
+        "tagline": "I have experience with the web for a year building personal projects. Here's the quick overview of what I use to build cool web apps.",
+        "title": "What I do"
+      }
+    },
+    "tagline": "Junior Full Stack Developer"
+  },
+  "blog": {
+    "language": "language",
+    "subtitle": "Welcome to my blog. Subscribe and get my latest blog posts in your inbox.",
+    "title": "A Blog About Software Development And Life"
+  },
+  "contact": {
+    "form": {
+      "email": "Email",
+      "fullName": "Full Name",
+      "message": "Message",
+      "send": "Send The Message"
+    },
+    "subtitle1": "Interested in hiring me for your project or just want to say hi? You can fill in the contact form below or send me an email to {email}.",
+    "subtitle2": "Want to get connected? Follow me on the social channels below."
+  },
+  "faqs": {
+    "description": "You can get answers for most asked questions below."
+  },
+  "footer": {
+    "madeBy": "Made by {owner} from {beliefyLink} team.",
+    "copyright": "Copyright {year}. All rights reserved. {pp}.",
+    "pp": "Privacy policy"
   },
   "header": {
     "links": {
@@ -9,15 +45,89 @@
       "contact": "Contact",
       "more": "Explore More",
       "projects": "Projects",
-      "resume": "Resume (CV)",
+      "resume": "Resume",
       "services": "Services & Pricing"
     },
     "overview": "Hello! My name is Shokhboz and I'm a skilled software engineer. Welcome to my personal web site."
   },
   "owner": "Shokhboz Abdullayev",
+  "projects": {
+    "description": "Welcome to my online portfolio. I'm taking on freelance work at the moment. Want some help building your software?",
+    "filters": {
+      "all": "All",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "mobile": "Mobile Apps",
+      "web": "Web Apps"
+    }
+  },
   "regulars": {
     "hire": "Hire Me",
-    "selectLang": "Select Preferred Language"
+    "published": "Published at",
+    "readMore": "Read More",
+    "selectLang": "Select Language",
+    "subscribe": "Subscribe",
+    "view": "View"
+  },
+  "resume": {
+    "description": "Firstly I was motivated by thinking that programming is an art. I started learning Python in 2019. I used Python to build little programs in order to make my mind run into programming basics. Nowadays I'm using JavaScript as my main language. I have an ability to learn new skills in IT sphere. Searching skills to make what's in purpose. Good at communication. Always online.",
+    "download": "Download PDF Version",
+    "sections": {
+      "education": "EDUCATION",
+      "interests": "INTERESTS",
+      "languages": "LANGUAGES",
+      "projects": "PROJECTS",
+      "skills": "SKILLS",
+      "workExperience": "WORK EXPERIENCE"
+    },
+    "title": "Online Resume"
+  },
+  "services": {
+    "packages": {
+      "basic": {
+        "title": "Basic"
+      },
+      "premium": {
+        "title": "Premium"
+      },
+      "standard": {
+        "title": "Standard"
+      }
+    },
+    "regulars": {
+
+      "animations": "Animations",
+      "backend": {
+        "description": "Static Backend with data saving and authentication with Django.",
+        "title": "Backend"
+      },
+      "backendApi": {
+        "description": "Backend that is based on API's - more fast and modern than Static Backend. ",
+        "title": "Api-based Backend"
+      },
+      "bookNow": "Book Now",
+      "days": "days",
+      "deliveryTime": "Delivery Time",
+      "design": "Custom Design",
+      "details": "Details",
+      "dynamicFrontend": {
+        "description": "No reloading anymore. Pages are fast and user friendly.",
+        "title": "Dynamic Frontend (Vue.js)"
+      },
+      "frontend": {
+        "description": "Conversion of your PSD or Figma layouts (designs) to frontend code.  ",
+        "title": "Frontend"
+      },
+      "months": "month(s)",
+      "prices": "Package Price"
+    },
+    "revisions": "Revisions",
+    "subtitle": {
+      "projects": "project portfolio",
+      "resume": "online resume"
+    },
+    "subtitle1": "I have a year of personal experience building softwares for the web. You can take a look at my {projects} and {resume} to find out more about my skills and experiences.",
+    "subtitle2": "I'm currently taking on freelance software development work. You're welcome to contact me for a custom quote for your project. I also offer development service packages with fixed pricing."
   },
   "themes": {
     "dark": "Dark",

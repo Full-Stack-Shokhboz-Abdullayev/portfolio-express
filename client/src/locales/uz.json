@@ -1,6 +1,42 @@
 {
   "about": {
+    "description": {
+      "all": "Men bit yillik tajribali bo'lgan, Vue.js va Express dan foydalanib ajoyib, ishonchli, ta'sirchan, avtomatlashtirilgan, jozibali, yagona sahifali veb-dasturlarni tuzgan junior full stack dasturchiman. Endi eski qayta yuklanadigan veb-saytlarni unuting. Mening {resume}im bilan tanishib chiqing yoki {resume}mni ko'rib chiqing.",
+      "projects": "loyihalar",
+      "resume": "rezyume"
+    },
+    "sections": {
+      "featured": "Saralangan Loyihalar",
+      "lbp": "So'nggi Bloglar",
+      "wid": {
+        "tagline": "Mening bir yil davomida shaxsiy loyihalar tuzish bilan tajribam bor. Ajoyib veb-ilovalarni tuzish uchun foydalanadigan narsalar haqida qisqacha ma'lumot.",
+        "title": "Men nima qilaman"
+      }
+    },
+    "tagline": "Junior Full Stack Dasturchi "
+  },
+  "blog": {
+    "language": "til",
+    "subtitle": "Blogimga xush kelibsiz. Obuna bo'ling va mening blogimdagi so'nggi xabarlarni pochta qutingizda qabul qiling.",
+    "title": "Dasturiy ta'minotni ishlab chiqish va Hayot haqida Blog"
+  },
+  "contact": {
+    "form": {
+      "email": "El-pochta",
+      "fullName": "To'liq Ism",
+      "message": "Xabar",
+      "send": "Xabarni Jo'natish"
+    },
+    "subtitle1": "Meni loyihangizga yollamoqchimisiz yoki salom aytishni xohlaysizmi? Siz quyida joylashgan aloqa shaklini to'ldirishingiz yoki {email} elektron manziliga elektron pochta xabarini yuborishingiz mumkin.",
+    "subtitle2": "Ulanishni xohlaysizmi? Meni quyidagi ijtimoiy kanallarda kuzatib boring."
+  },
+  "faqs": {
     "description": ""
+  },
+  "footer": {
+    "madeBy": "{beliefyLink} jamoasi a'zosi {owner} tomonidan tayyorlandi.",
+    "copyright": "Copyright {year}. Barcha huquqlar himoyalangan. {pp}.",
+    "pp": "Maxfiylik siyosati"
   },
   "header": {
     "links": {
@@ -15,9 +51,85 @@
     "overview": "Salom! Mening ismim Shoxboz va men tajribali dasturchiman. Mening shaxsiy saytimga xush kelibsiz."
   },
   "owner": "Shoxboz Abdullayev",
+  "projects": {
+    "description": "Onlayn portfolioga xush kelibsiz. Ayni paytda men mustaqil ish bilan shug'ullanmoqdaman. Dasturiy ta'minotni yaratishda yordam xohlaysizmi?",
+    "filters": {
+      "all": "Barcha",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "mobile": "Mobil",
+      "web": "Veb"
+    }
+  },
   "regulars": {
     "hire": "Ishga Olmoq",
-    "selectLang": "Afzal Ko'rgan Tilni Tanlang "
+    "published": "Nashr etilgan sana",
+    "readMore": "Ko'proq O'qish",
+    "selectLang": "Tilni Tanlang",
+    "subscribe": "",
+    "vblog": "",
+    "view": "",
+    "vprojects": "",
+    "vresume": ""
+  },
+  "resume": {
+    "description": "Dastlab dasturlash bu san'at degan fikr menga turtki berdi. Men Python-ni 2019 yilda o'rganishni boshladim. Men Python-dan dasturlash asoslarini o'rganish uchun kichik dasturlar tuzishda foydalanardim. Hozirgi kunda men JavaScript-ni asosiy tilim sifatida ishlatmoqdaman. Menda IT sohasida yangi ko'nikmalarni o'rganish qobiliyatim bor. Maqsadga erishish uchun search qobiliyatlari ham mavjud. Muloqotda yaxshi. Har doim onlayn.",
+    "download": "PDF Versiyasini Yuklash",
+    "sections": {
+      "education": "TA'LIM",
+      "interests": "QIZIQISHLAR",
+      "languages": "TILLAR",
+      "projects": "LOYIHALAR",
+      "skills": "QOBILIYATLAR",
+      "workExperience": "ISH TAJRIBASI"
+    },
+    "title": "Onlayn Rezyume"
+  },
+  "services": {
+    "packages": {
+      "basic": {
+        "title": ""
+      },
+      "premium": {
+        "title": ""
+      },
+      "standard": {
+        "title": ""
+      }
+    },
+    "regulars": {
+      "animations": "",
+      "backend": {
+        "description": "",
+        "title": ""
+      },
+      "backendApi": {
+        "description": "",
+        "title": ""
+      },
+      "bookNow": "Buyurtma",
+      "days": "",
+      "deliveryTime": "",
+      "design": "",
+      "details": "",
+      "dynamicFrontend": {
+        "description": "",
+        "title": ""
+      },
+      "frontend": {
+        "description": "",
+        "title": ""
+      },
+      "months": "",
+      "prices": ""
+    },
+    "revisions": "",
+    "subtitle": {
+      "projects": "",
+      "resume": ""
+    },
+    "subtitle1": "",
+    "subtitle2": ""
   },
   "themes": {
     "dark": "Tungi",

@@ -3,24 +3,22 @@
 	<div class="main-wrapper services">
 		<section class="cta-section theme-bgs py-5">
 			<div class="container text-center single-col-max-width">
-				<h2 class="heading">Services &amp; Pricing</h2>
+				<h2 class="heading">{{ $t('header.links.services') }}</h2>
 				<div class="intro">
-					<p>
-						I have a year of personal experience building
-						softwares for the web. You can take a
-						look at my
-						<a href="portfolio.html" target="_blank"
-							>project portfolio</a
-						>
-						and
-						<a href="resume.html" target="_blank">online resume</a>
-						to find out more about my skills and experiences.
-					</p>
+					<i18n tag="p" path="services.subtitle1">
+						<template v-slot:projects>
+							<router-link exact :to="{ name: 'projects' }">{{
+								$t('services.subtitle.projects')
+							}}</router-link>
+						</template>
+						<template v-slot:resume>
+							<router-link exact :to="{ name: 'resume' }">{{
+								$t('services.subtitle.resume')
+							}}</router-link>
+						</template>
+					</i18n>
 					<p class="mb-0">
-						I'm currently taking on freelance software development
-						work. You're welcome to contact me for a custom quote
-						for your project. I also offer development service
-						packages with fixed pricing.
+						{{ $t('services.subtitle2') }}
 					</p>
 				</div>
 			</div>
@@ -38,19 +36,19 @@
 						@click="switchPackages"
 						class="pricing-tab mb-3 btn w-50"
 						data-target="pricing-1-data"
-						>Basic</a
+						>{{ $t('services.packages.basic.title') }}</a
 					>
 					<a
 						@click="switchPackages"
 						class="pricing-tab mb-3 btn inactive w-50"
 						data-target="pricing-2-data"
-						>Standard</a
+						>{{ $t('services.packages.standard.title') }}</a
 					>
 					<a
 						@click="switchPackages"
 						class="pricing-tab btn inactive w-50 mb-3"
 						data-target="pricing-3-data"
-						>Premium</a
+						>{{ $t('services.packages.premium.title') }}</a
 					>
 				</div>
 				<!--//pricing-mobile-tabs-->
@@ -63,26 +61,26 @@
 								scope="col"
 								class="pricing-package-title pricing-1-data fafa shown"
 							>
-								Basic
+								{{ $t('services.packages.basic.title') }}
 							</th>
 							<th
 								scope="col"
 								class="pricing-package-title pricing-2-data mobile-is-hidden fafa"
 							>
-								Standard
+								{{ $t('services.packages.standard.title') }}
 							</th>
 							<th
 								scope="col"
 								class="pricing-package-title pricing-3-data mobile-is-hidden fafa"
 							>
-								Premium
+								{{ $t('services.packages.premium.title') }}
 							</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="pricing-price-row">
 							<th scope="row" class="pricing-0-data">
-								Package Price
+								{{ $t('services.regulars.prices') }}
 							</th>
 							<td class="pricing-1-data shown">
 								<span class="price-number">$900</span>
@@ -96,7 +94,9 @@
 						</tr>
 
 						<tr class="pricing-desc-row">
-							<th scope="row" class="pricing-0-data">Details</th>
+							<th scope="row" class="pricing-0-data">
+								{{ $t('services.regulars.details') }}
+							</th>
 							<td class="pricing-1-data shown">
 								<span class="pricing-package-desc"
 									>A small app lorem ipsum dolor sit amet,
@@ -125,11 +125,14 @@
 								class="pricing-feature-row-name pricing-0-data"
 								scope="row"
 							>
-								Feature Lorem<br /><small
+								{{ $t('services.regulars.frontend.title')
+								}}<br /><small
 									class="feature-desc font-weight-normal text-muted"
-									>Optional feature description goes here.
-									Lorem ipsum dolor sit amet, consectetuer
-									adipiscing elit.</small
+									>{{
+										$t(
+											'services.regulars.frontend.description'
+										)
+									}}</small
 								>
 							</th>
 							<td class="pricing-1-data shown">
@@ -183,8 +186,8 @@
 									<path
 										fill="currentColor"
 										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-									/></svg
-								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
+									/>
+								</svg>
 							</td>
 						</tr>
 						<tr class="pricing-feature-row">
@@ -192,136 +195,15 @@
 								class="pricing-feature-row-name pricing-0-data"
 								scope="row"
 							>
-								Feature Ipsum<br /><small
+								{{ $t('services.regulars.backend.title')
+								}}<br /><small
 									class="feature-desc font-weight-normal text-muted"
-									>Optional feature description goes here.
-									Lorem ipsum dolor sit amet, consectetuer
-									adipiscing elit.</small
+									>{{
+										$t(
+											'services.regulars.backend.description'
+										)
+									}}</small
 								>
-							</th>
-							<td class="pricing-1-data shown">
-								<svg
-									class="svg-inline--fa fa-check fa-w-16 primary"
-									aria-hidden="true"
-									focusable="false"
-									data-prefix="fas"
-									data-icon="check"
-									role="img"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 512 512"
-									data-fa-i2svg=""
-								>
-									<path
-										fill="currentColor"
-										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-									/></svg
-								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
-							</td>
-							<td class="pricing-2-data mobile-is-hidden">
-								<svg
-									class="svg-inline--fa fa-check fa-w-16 primary"
-									aria-hidden="true"
-									focusable="false"
-									data-prefix="fas"
-									data-icon="check"
-									role="img"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 512 512"
-									data-fa-i2svg=""
-								>
-									<path
-										fill="currentColor"
-										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-									/></svg
-								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
-							</td>
-							<td class="pricing-3-data mobile-is-hidden">
-								<svg
-									class="svg-inline--fa fa-check fa-w-16 primary"
-									aria-hidden="true"
-									focusable="false"
-									data-prefix="fas"
-									data-icon="check"
-									role="img"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 512 512"
-									data-fa-i2svg=""
-								>
-									<path
-										fill="currentColor"
-										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-									/></svg
-								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
-							</td>
-						</tr>
-						<tr class="pricing-feature-row">
-							<th
-								class="pricing-feature-row-name pricing-0-data"
-								scope="row"
-							>
-								Feature Commodo
-							</th>
-							<td class="pricing-1-data shown">
-								<svg
-									class="svg-inline--fa fa-check fa-w-16 primary"
-									aria-hidden="true"
-									focusable="false"
-									data-prefix="fas"
-									data-icon="check"
-									role="img"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 512 512"
-									data-fa-i2svg=""
-								>
-									<path
-										fill="currentColor"
-										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-									/></svg
-								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
-							</td>
-							<td class="pricing-2-data mobile-is-hidden">
-								<svg
-									class="svg-inline--fa fa-check fa-w-16 primary"
-									aria-hidden="true"
-									focusable="false"
-									data-prefix="fas"
-									data-icon="check"
-									role="img"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 512 512"
-									data-fa-i2svg=""
-								>
-									<path
-										fill="currentColor"
-										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-									/></svg
-								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
-							</td>
-							<td class="pricing-3-data mobile-is-hidden">
-								<svg
-									class="svg-inline--fa fa-check fa-w-16 primary"
-									aria-hidden="true"
-									focusable="false"
-									data-prefix="fas"
-									data-icon="check"
-									role="img"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 512 512"
-									data-fa-i2svg=""
-								>
-									<path
-										fill="currentColor"
-										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-									/></svg
-								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
-							</td>
-						</tr>
-						<tr class="pricing-feature-row">
-							<th
-								class="pricing-feature-row-name pricing-0-data"
-								scope="row"
-							>
-								Feature Consectetuer
 							</th>
 							<td class="pricing-1-data shown">
 								<span class="text-muted">–</span>
@@ -359,8 +241,8 @@
 									<path
 										fill="currentColor"
 										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-									/></svg
-								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
+									/>
+								</svg>
 							</td>
 						</tr>
 						<tr class="pricing-feature-row">
@@ -368,7 +250,20 @@
 								class="pricing-feature-row-name pricing-0-data"
 								scope="row"
 							>
-								Feature Aenean
+								{{
+									$t(
+										'services.regulars.dynamicFrontend.title'
+									)
+								}}
+								<br />
+								<small
+									class="feature-desc font-weight-normal text-muted"
+									>{{
+										$t(
+											'services.regulars.dynamicFrontend.description'
+										)
+									}}</small
+								>
 							</th>
 							<td class="pricing-1-data shown">
 								<span class="text-muted">–</span>
@@ -400,7 +295,16 @@
 								class="pricing-feature-row-name pricing-0-data"
 								scope="row"
 							>
-								Feature Duis
+								{{ $t('services.regulars.backendApi.title') }}
+								<br />
+								<small
+									class="feature-desc font-weight-normal text-muted"
+									>{{
+										$t(
+											'services.regulars.backendApi.description'
+										)
+									}}</small
+								>
 							</th>
 							<td class="pricing-1-data shown">
 								<span class="text-muted">–</span>
@@ -432,7 +336,131 @@
 								class="pricing-feature-row-name pricing-0-data"
 								scope="row"
 							>
-								Revisions
+								{{ $t('services.regulars.design') }}
+							</th>
+							<td class="pricing-1-data shown">
+								<svg
+									class="svg-inline--fa fa-check fa-w-16 primary"
+									aria-hidden="true"
+									focusable="false"
+									data-prefix="fas"
+									data-icon="check"
+									role="img"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 512 512"
+									data-fa-i2svg=""
+								>
+									<path
+										fill="currentColor"
+										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+									/>
+								</svg>
+							</td>
+							<td class="pricing-2-data mobile-is-hidden">
+								<svg
+									class="svg-inline--fa fa-check fa-w-16 primary"
+									aria-hidden="true"
+									focusable="false"
+									data-prefix="fas"
+									data-icon="check"
+									role="img"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 512 512"
+									data-fa-i2svg=""
+								>
+									<path
+										fill="currentColor"
+										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+									/>
+								</svg>
+							</td>
+							<td class="pricing-3-data mobile-is-hidden">
+								<svg
+									class="svg-inline--fa fa-check fa-w-16 primary"
+									aria-hidden="true"
+									focusable="false"
+									data-prefix="fas"
+									data-icon="check"
+									role="img"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 512 512"
+									data-fa-i2svg=""
+								>
+									<path
+										fill="currentColor"
+										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+									/></svg
+								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
+							</td>
+						</tr>
+						<tr class="pricing-feature-row">
+							<th
+								class="pricing-feature-row-name pricing-0-data"
+								scope="row"
+							>
+								{{ $t('services.regulars.animations') }}
+							</th>
+							<td class="pricing-1-data shown">
+								<svg
+									class="svg-inline--fa fa-check fa-w-16 primary"
+									aria-hidden="true"
+									focusable="false"
+									data-prefix="fas"
+									data-icon="check"
+									role="img"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 512 512"
+									data-fa-i2svg=""
+								>
+									<path
+										fill="currentColor"
+										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+									/>
+								</svg>
+							</td>
+							<td class="pricing-2-data mobile-is-hidden">
+								<svg
+									class="svg-inline--fa fa-check fa-w-16 primary"
+									aria-hidden="true"
+									focusable="false"
+									data-prefix="fas"
+									data-icon="check"
+									role="img"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 512 512"
+									data-fa-i2svg=""
+								>
+									<path
+										fill="currentColor"
+										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+									/>
+								</svg>
+							</td>
+							<td class="pricing-3-data mobile-is-hidden">
+								<svg
+									class="svg-inline--fa fa-check fa-w-16 primary"
+									aria-hidden="true"
+									focusable="false"
+									data-prefix="fas"
+									data-icon="check"
+									role="img"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 512 512"
+									data-fa-i2svg=""
+								>
+									<path
+										fill="currentColor"
+										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+									/></svg
+								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
+							</td>
+						</tr>
+						<tr class="pricing-feature-row">
+							<th
+								class="pricing-feature-row-name pricing-0-data"
+								scope="row"
+							>
+								{{ $t('services.revisions') }}
 							</th>
 							<td class="pricing-1-data shown">
 								<span class="text-muted">1</span>
@@ -447,14 +475,16 @@
 								class="pricing-feature-row-name pricing-0-data"
 								scope="row"
 							>
-								Delivery Time
+								{{ $t('services.regulars.deliveryTime') }}
 							</th>
-							<td class="pricing-1-data shown">7 days</td>
+							<td class="pricing-1-data shown">
+								7 {{ $t('services.regulars.days') }}
+							</td>
 							<td class="pricing-2-data mobile-is-hidden">
-								14 days
+								14 {{ $t('services.regulars.days') }}
 							</td>
 							<td class="pricing-3-data mobile-is-hidden">
-								2 - 3 month(s)
+								2 - 3 {{ $t('services.regulars.months') }}
 							</td>
 						</tr>
 					</tbody>
@@ -462,13 +492,19 @@
 						<tr class="pricing-cta-row">
 							<td class="pricing-0-data" />
 							<td class="pricing-1-data shown">
-								<a class="btn" href="#">Book Now</a>
+								<button class="btn">
+									{{ $t('services.regulars.bookNow') }}
+								</button>
 							</td>
 							<td class="pricing-2-data mobile-is-hidden">
-								<a class="btn" href="#">Book Now</a>
+								<button class="btn">
+									{{ $t('services.regulars.bookNow') }}
+								</button>
 							</td>
 							<td class="pricing-3-data mobile-is-hidden">
-								<a class="btn" href="#">Get A Quote</a>
+								<button class="btn">
+									{{ $t('regulars.hire') }}
+								</button>
 							</td>
 						</tr>
 					</tfoot>
@@ -483,8 +519,7 @@
 			<div class="container single-col-max-width">
 				<h3 class="text-center mb-4">FAQs</h3>
 				<div class="text-center mb-5">
-					You can use this section to address any queries your
-					potential clients may have.
+					{{ $t('faqs.description') }}
 				</div>
 				<div id="faq-accordion" class="faq-accordion mx-auto">
 					<div
