@@ -34,8 +34,8 @@
     "description": "You can get answers for most asked questions below."
   },
   "footer": {
-    "madeBy": "Made by {owner} from {beliefyLink} team.",
     "copyright": "Copyright {year}. All rights reserved. {pp}.",
+    "madeBy": "Made by {owner} from {beliefyLink} team.",
     "pp": "Privacy policy"
   },
   "header": {
@@ -85,17 +85,19 @@
   "services": {
     "packages": {
       "basic": {
+        "details": "Production of Websites that are mainly focused on Front-End Development. The design must be provided by the client.",
         "title": "Basic"
       },
       "premium": {
+        "details": "A complex web application for businesses. Everything is dynamic including Backend, Frontend. Aimed to succeed in the job. ",
         "title": "Premium"
       },
       "standard": {
+        "details": "The medium-sized web-app. Static Backend, Frontend, Custom design are provided by the developer.",
         "title": "Standard"
       }
     },
     "regulars": {
-
       "animations": "Animations",
       "backend": {
         "description": "Static Backend with data saving and authentication with Django.",
@@ -103,7 +105,7 @@
       },
       "backendApi": {
         "description": "Backend that is based on API's - more fast and modern than Static Backend. ",
-        "title": "Api-based Backend"
+        "title": "API-based Backend"
       },
       "bookNow": "Book Now",
       "days": "days",
@@ -119,7 +121,8 @@
         "title": "Frontend"
       },
       "months": "month(s)",
-      "prices": "Package Price"
+      "prices": "Package Price",
+      "responsiveness": "Responsiveness"
     },
     "revisions": "Revisions",
     "subtitle": {

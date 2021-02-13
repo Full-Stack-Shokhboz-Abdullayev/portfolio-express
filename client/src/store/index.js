@@ -1,10 +1,20 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-Vue.use(Vuex);
+import Projects from './modules/projects'
+import Faqs from './modules/faqs'
+import Blogs from './modules/blogs'
 
-export default new Vuex.Store({
+Vue.use(Vuex)
+
+const store = new Vuex.Store({
 	state: {
+		editMode: false,
+		projectIsUpdating: false,
+		prevRoute: {
+			name: null,
+			query: {}
+		},
 		socials: [
 			{
 				icon: 'fa-github-alt',
@@ -12,7 +22,8 @@ export default new Vuex.Store({
 			},
 			{
 				icon: 'fa-linkedin',
-				link: 'https://www.linkedin.com/in/shokhboz-abdullayev-8545b01b9/'
+				link:
+					'https://www.linkedin.com/in/shokhboz-abdullayev-8545b01b9/'
 			},
 			{
 				icon: 'fa-facebook',
@@ -23,113 +34,24 @@ export default new Vuex.Store({
 				link: 'https://www.instagram.com/just__a__developer/'
 			},
 			{
-				icon: 'fa-adobe',
-				link: "",
-			}
-		],
-		blogPosts: [
-			{
-				heading: 'Top 3 JavaScript Frameworks',
-				tag:
-					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12/02/2020',
-				lang: 'English'
-			},
-			{
-				heading: 'Top 3 JavaScript Frameworks',
-				tag:
-					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12/02/2020',
-				lang: "O'zbek"
-			},
-			{
-				heading: 'Top 3 JavaScript Frameworks',
-				tag:
-					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12/02/2020',
-				lang: 'English'
-			},
-			{
-				heading: 'Top 3 JavaScript Frameworks',
-				tag:
-					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12/02/2020',
-				lang: 'Русский'
-			},
-			{
-				heading: 'Top 3 JavaScript Frameworks',
-				tag:
-					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12/02/2020',
-				lang: 'English'
-			},
-			{
-				heading: 'Top 3 JavaScript Frameworks',
-				tag:
-					'We will talk about top 3 JavaScript client side frameworks...',
-				publishedDate: '12/02/2020',
-				lang: 'Русский'
-			}
-		],
-		projects: [
-			{
-				heading: 'To Do1',
-				description: 'Simple To Do App using React and Django.',
-				link: '',
-				client: 'self',
-				type: ['web-apps', 'frontend']
-				// published:
-			},
-			{
-				heading: 'To Do2',
-				description: 'Simple To Do App using React and Django.',
-				link: '',
-				client: 'self',
-				type: ['mobile-apps', 'backend']
-			},
-			{
-				heading: 'To Do3',
-				description: 'Simple To Do App using React and Django.',
-				link: '',
-				client: 'self',
-				type: ['web-apps', 'frontend']
-				// published:
-			},
-			{
-				heading: 'To Do4',
-				description: 'Simple To Do App using React and Django.',
-				link: '',
-				client: 'self',
-				type: ['mobile-apps', 'backend']
-			},
-			{
-				heading: 'To Do5',
-				description: 'Simple To Do App using React and Django.',
-				link: '',
-				client: 'self',
-				type: ['web-apps', 'frontend']
-			},
-			{
-				heading: 'To Do6',
-				description: 'Simple To Do App using React and Django.',
-				link: '',
-				client: 'self',
-				type: ['web-apps', 'backend']
+				icon: 'fa-behance',
+				link: ''
 			}
 		]
 	},
-	getters: {
-		projects(store) {
-			return store.projects;
-		},
-		socials(store) {
-			return store.socials;
-		},
-		blogPosts(store) {
-			return store.blogPosts;
+
+	mutations: {
+		toggleEditMode(state) {
+			state.editMode = !state.editMode
+			console.log(state.editMode)
 		}
 	},
-	mutations: {},
-	actions: {},
-	modules: {}
-});
+
+	modules: {
+		Projects,
+		Faqs,
+		Blogs
+	}
+})
+
+export default store

@@ -20,6 +20,7 @@
 							<template v-slot:projects>
 								<router-link
 									class="link"
+									img
 									exact
 									:to="{ name: 'projects' }"
 									>{{
@@ -38,6 +39,7 @@
 								>
 							</template>
 						</i18n>
+
 						<!--//bio-->
 						<!-- </typewriter> -->
 						<div class="mb-4">
@@ -529,18 +531,26 @@
 				<h2 class="section-title font-weight-bold mb-5 observable">
 					{{ $t('about.sections.featured') }}
 				</h2>
+				<transition name="projectLoaded">
+					<app-loading
+						:condition="featuredProjectsLoading"
+					></app-loading>
+				</transition>
+
 				<div
+					v-show-slide:400:ease="!featuredProjectsLoading"
 					class="d-flex justify-content-center align-items-center flex-wrap"
 				>
 					<div
-						v-for="(project, index) in projects"
-						:key="index"
+						v-for="(project, index) in featuredProjects"
+						:key="project._id"
 						:id="index"
 						@mouseleave="onMouseLeave($event, index)"
 						@mouseenter="onMouseEnter($event, index)"
 						@mousemove="onMouseMove($event, index)"
 						ref="skillcard"
 						class="card-wrapper py-5 px-4"
+						style="height: auto !important"
 					>
 						<div class="observable">
 							<div class="card fafa about-card project-card">
@@ -550,7 +560,7 @@
 									>
 										<v-lazy-image
 											:src="my"
-											src-placeholder=""
+											:src-placeholder="project.title"
 										/>
 										<div class="filter"></div>
 										<!-- <img :src="projects.imgSrc" class="card-img" alt="image"> -->
@@ -559,9 +569,9 @@
 										<div class="card-body">
 											<h5 class="card-title tr">
 												<a
-													href="project.html"
+													:href="project.url"
 													class="theme-link z"
-													>{{ project.heading }}</a
+													>{{ project.title }}</a
 												>
 											</h5>
 											<p class="card-text1 tr">
@@ -577,14 +587,10 @@
 									</div>
 								</div>
 								<div class="link-mask tr">
-									<a
-										class="link-mask-link"
-										href="project.html"
-									></a>
 									<div class="link-mask-text">
 										<a
 											class="btn watch btn-secondary-custom"
-											href="project.html"
+											:href="project.url"
 										>
 											<svg
 												class="svg-inline--fa fa-eye fa-w-18 mr-2"
@@ -613,6 +619,7 @@
 					</div>
 					<!--//col-->
 				</div>
+
 				<!--//row-->
 				<div class="text-center py-3 observable">
 					<router-link
@@ -651,21 +658,24 @@
 				<h2 class="section-title font-weight-bold mb-5 observable">
 					{{ $t('about.sections.lbp') }}
 				</h2>
+				<transition name="projectLoaded">
+					<app-loading
+						:condition="featuredProjectsLoading"
+					></app-loading>
+				</transition>
 				<div
+					v-if="!featuredProjectsLoading"
 					class="d-flex justify-content-around align-items-center flex-wrap"
 				>
 					<div
 						class="mx-2 mb-5 observable"
-						v-rellax="{
-							speed: false
-						}"
-						v-for="(blog, index) in latestPosts"
+						v-for="(blog, index) in latestBlogs"
 						:key="index"
 					>
 						<div class="card blog-post-card">
 							<img
 								class="card-img-top"
-								src="../assets/me.jpg"
+								src="../assets/img/me.jpg"
 								alt="image"
 							/>
 							<div class="card-body">
@@ -676,19 +686,22 @@
 								</h5>
 								<p class="card-text">
 									{{ blog.tag }}
-									<br>
-									<br>
-									<b class="blog-lang">Language: {{blog.lang}}</b>
+									<br />
+									<br />
+									<b class="blog-lang"
+										>Language: {{ blog.lang }}</b
+									>
 								</p>
 								<p class="mb-0">
 									<a class="more-link" href="blog-post.html"
-										>{{$t('regulars.readMore')}} →</a
+										>{{ $t('regulars.readMore') }} →</a
 									>
 								</p>
 							</div>
 							<div class="card-footer">
 								<small class="text-muted"
-									>{{$t('regulars.published')}} {{ blog.publishedDate }}</small
+									>{{ $t('regulars.published') }}
+									{{ blog.publishedDate }}</small
 								>
 							</div>
 						</div>
@@ -727,114 +740,68 @@
 </template>
 
 <script>
-import intersectionAnimation from '../components/jsComponents/intersectionAnimtations';
-import { BrowserDetect } from '../components/jsComponents/browserDetect';
-import { mapGetters } from 'vuex';
-import VLazyImage from 'v-lazy-image';
-import me from '@/assets/me.jpg';
-import me2 from '@/assets/me2.jpg';
+import { BrowserDetect } from '@/assets/jsComponents/browserDetect'
+import {
+	onMouseEnter,
+	onMouseLeave,
+	onMouseMove
+} from '@/assets/jsComponents/3dAnimation.js'
+import me2 from '@/assets/img/me2.jpg'
+import me from '@/assets/img/me.jpg'
+
+import { mapState, mapActions } from 'vuex'
 // eslint-disable no-mixed-spaces-and-tabs
 export default {
 	data() {
 		return {
 			status: 'hidden',
 			browser: BrowserDetect.browser
-		};
-	},
-	computed: {
-		...mapGetters(['projects', 'blogPosts']),
-		my() {
-			return me;
-		},
-		latestPosts() {
-			return this.blogPosts.filter((i) => this.blogPosts.indexOf(i) <= 2);
-		},
-		my2() {
-			return me2;
 		}
 	},
-	components: {
-		VLazyImage
+	computed: {
+		...mapState('Blogs', ['latestBlogs']),
+		...mapState('Projects', ['featuredProjects']),
+
+		featuredProjectsLoading() {
+			return this.featuredProjects.length === 0
+		},
+		my() {
+			return me
+		},
+
+		my2() {
+			return me2
+		}
 	},
 
 	methods: {
-		onMouseMove(e, index) {
-			let card = document.querySelectorAll('.project-card')[index],
-				cardWrapper = document.querySelectorAll('.card-wrapper')[index],
-				rect = cardWrapper.getBoundingClientRect(),
-				x = e.clientX - rect.left,
-				y = e.clientY - rect.top,
-				yAxis = (rect.height / 2 - y) / 8,
-				xAxis = (rect.width / 2 - x) / 8;
-			card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-		},
-		onMouseEnter(e, index) {
-			console.log(this.browser);
-			if (this.browser === 'Chrome') {
-				let btn = document.querySelectorAll('.link-mask')[index],
-					title = document.querySelectorAll('.card-title')[index],
-					img = document.querySelectorAll('.card-img-holder')[index],
-					minText = document.querySelectorAll('.card-text1')[index];
-				btn.classList.add('transformed');
-				title.classList.add('transformed3');
-				img.classList.add('transformed');
-				minText.classList.add('transformed4');
-			}
-			let card = document.querySelectorAll('.project-card')[index];
+		onMouseEnter,
+		onMouseLeave,
+		onMouseMove,
 
-			setTimeout(() => (card.style.transition = ``), 300);
-		},
-		onMouseLeave(e, index) {
-			let card = document.querySelectorAll('.project-card')[index];
-			if (this.browser === 'Chrome') {
-				let btn = document.querySelectorAll('.link-mask')[index],
-					title = document.querySelectorAll('.card-title')[index],
-					img = document.querySelectorAll('.card-img-holder')[index],
-					minText = document.querySelectorAll('.card-text1')[index];
-				btn.classList.remove('transformed');
-				title.classList.remove('transformed3');
-				img.classList.remove('transformed');
-				minText.classList.remove('transformed4');
-			}
-
-			card.style.transform = ``;
-			card.style.transition = `0.3s ease-out all`;
-		}
+		...mapActions('Projects', ['setFeaturedProjects']),
+		...mapActions('Blogs', ['setLatestBlogs'])
 	},
 	mounted() {
-		intersectionAnimation();
-		// this.type()
+		this.$intersectionAnimation()
+		this.setFeaturedProjects()
+		this.setLatestBlogs()
 	},
 	updated() {
-		intersectionAnimation();
+		this.$intersectionAnimation()
+	},
+	head() {
+		return {
+			title: 'About'
+		}
 	}
-};
+}
 // eslint-enable no-mixed-spaces-and-tabs
 </script>
 
-<style lang="scss">
-.filter {
-	position: absolute;
-	top: 0%;
-	left: 0%;
-	height: 100%;
-	width: 100%;
-	background: rgba(0, 0, 0, 0.7);
-	transition: 0.8s ease-in-out all;
-}
-
-@supports (backdrop-filter: blur(10px)) {
-	.filter {
-		backdrop-filter: blur(20px);
-		background: rgba(0, 0, 0, 0.4);
-	}
-}
-
-.v-lazy-image-loaded ~ .filter {
-	opacity: 0;
-}
-
-.type {
-	transition: 0.3s ease height !important;
+<style lang="scss" scoped>
+.main-wrapper {
+	perspective: 1600px;
+	perspective-origin: 50% 50%;
 }
 </style>

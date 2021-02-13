@@ -44,12 +44,7 @@
 		}
 	}
 }
-form .btn {
-	background-color: $primary;
-	&:hover {
-		background-color: darken($color: $primary, $amount: 20%) !important;
-	}
-}
+
 .wrap-input2:not(.newsletter) {
 	margin-bottom: 40px;
 }

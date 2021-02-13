@@ -14,18 +14,14 @@
 			<nav class="d-flex align-items-center flex-column my-d">
 				<div class="navigation d-flex align-items-center flex-column">
 					<div class="profile d-flex flex-column align-items-center">
-						
-						<div
-							class="mb-3 position-relative header-img"
-							
-						>
-							<v-lazy-image :src="me2" src-placeholder="Hello"  />
-							<div
-								class="filter"
-								
-							></div>
+						<div class="mb-3 position-relative header-img">
+							<v-lazy-image :src="me2" src-placeholder="Hello" />
+							<div class="filter"></div>
 						</div>
 						<div class="bio mb-3">
+							<!-- <i>
+								Be calm and reach your goal. 
+							</i> -->
 							{{ $t('header.overview') }}
 						</div>
 						<ul
@@ -154,8 +150,7 @@
 						</router-link>
 						<router-link
 							:to="{ name: 'blog' }"
-							exact
-							exact-active-class="active"
+							active-class="active"
 							tag="li"
 							class="link"
 							@click.native="hideNav"
@@ -218,19 +213,24 @@
 							style="list-style: none; border-radius: 5px"
 							class="w-100 m-0 p-0 text-center more-pages"
 						>
-							<li
-								v-for="num in 3"
-								:key="num"
-								class="link text-center"
-							>
-								<a href="#" class="text-l">beliefy.io</a>
+							<li class="link text-center">
+								<a
+									href="https://tviser.agency"
+									target="_blank"
+									class="text-l"
+									>tviser.agency</a
+								>
 							</li>
 						</ul>
 					</div>
-					<button class="btn btn-block mt-4 custom-btn header-hire">
+					<router-link
+						tag="button"
+						:to="{ name: 'servicesPricing' }"
+						class="btn btn-block mt-4 custom-btn header-hire"
+					>
 						<i class="fa fa-paper-plane" />
 						{{ $t('regulars.hire') }}
-					</button>
+					</router-link>
 					<hr />
 
 					<div
@@ -282,79 +282,85 @@
 </template>
 
 <script>
-import VLazyImage from 'v-lazy-image';
-import me2 from '@/assets/me2.jpg';
+import me2 from '@/assets/img/me2.jpg'
 
-import { mapGetters } from 'vuex';
+import { mapState } from 'vuex'
 export default {
 	data() {
 		return {
 			darkOn: false,
 			opened: false,
 			navOpened: false
-		};
+		}
 	},
 	computed: {
-		...mapGetters(['socials']),
+		...mapState(['socials']),
 		text() {
 			return this.darkOn
 				? this.$t('themes.light')
-				: this.$t('themes.dark');
+				: this.$t('themes.dark')
 		},
 		selectedLang() {
-			return this.$i18n.locale;
+			return this.$i18n.locale
 		},
 		me2() {
-			return me2;
+			return me2
 		}
 	},
 	created() {
-		this.analyzeTheme();
+		this.analyzeTheme()
 	},
-	components: {
-		VLazyImage
-	},
+
 	methods: {
 		setLang(lang) {
-			this.$i18n.locale = lang;
+			this.$i18n.locale = lang
+			localStorage.setItem('language', lang)
 		},
+		loadLanguage() {
+			const lang = localStorage.getItem('language')
+			if (lang) {
+				this.$i18n.locale = lang
+			}
+		},
+
 		hideNav() {
-			this.navOpened = false;
-			const nav = document.querySelector('nav');
+			this.navOpened = false
+			const nav = document.querySelector('nav')
 			setTimeout(() => {
-				nav.classList.add('my-d');
-			}, 300);
+				nav.classList.add('my-d')
+			}, 300)
 		},
 		toggleNav() {
-			this.navOpened = !this.navOpened;
-			const nav = document.querySelector('nav');
+			this.navOpened = !this.navOpened
+			const nav = document.querySelector('nav')
 			if (this.navOpened) {
-				nav.classList.remove('my-d');
+				nav.classList.remove('my-d')
 			} else {
 				setTimeout(() => {
-					nav.classList.add('my-d');
-				}, 300);
+					nav.classList.add('my-d')
+				}, 300)
 			}
 		},
 		analyzeTheme() {
 			if (localStorage.getItem('darkOn') === 'true') {
-				this.darkOn = true;
-				document.body.classList.add('dark');
+				this.darkOn = true
+				document.body.classList.add('dark')
 			}
 		},
 		onSwitch() {
-			this.darkOn = !this.darkOn;
-			localStorage.setItem('darkOn', this.darkOn);
-			console.log(localStorage.getItem('darkOn'));
-			document.body.classList.toggle('dark');
+			this.darkOn = !this.darkOn
+			localStorage.setItem('darkOn', this.darkOn)
+			console.log(localStorage.getItem('darkOn'))
+			document.body.classList.toggle('dark')
 		},
 		openPages() {
-			this.opened = !this.opened;
+			this.opened = !this.opened
 		}
+	},
+	mounted() {
+		this.loadLanguage()
 	}
-};
+}
 </script>
 
-<style>
-
-</style>
+<style></style>

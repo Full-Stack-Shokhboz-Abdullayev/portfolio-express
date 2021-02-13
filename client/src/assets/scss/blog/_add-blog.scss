@@ -1,0 +1,104 @@
+
+.ProseMirror-focused {
+	border: none !important;
+	outline: none !important;
+}
+.is-editor-empty:first-of-type:before {
+	content: 'Write Something...';
+	float: left;
+	color: rgb(160, 160, 160);
+	pointer-events: none;
+	//   height: 0;
+
+	position: absolute;
+	font-style: italic;
+}
+.editor {
+	background: var(--pr-sbg);
+	padding: 0px 10px 0px 10px;
+	border-radius: 5px;
+	margin-top: 100px;
+	h1:first-of-type {
+		margin-top: 10px;
+	}
+}
+.editor-title {
+	background: transparent;
+	outline: none;
+	border: none;
+	&::placeholder {
+		font-style: italic;
+		color: rgb(184, 184, 184);
+	}
+}
+.menububble {
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.menufloating {
+	margin-left: 200px;
+}
+.menububble,
+.menufloating {
+	position: absolute;
+	display: -webkit-box;
+	display: flex;
+	z-index: 20;
+	background: #000;
+	border-radius: 5px;
+	padding: 0.3rem;
+	margin-bottom: 0.5rem;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transition: opacity 0.2s, visibility 0.2s;
+	transition: opacity 0.2s, visibility 0.2s;
+	&.is-active {
+		opacity: 1 !important;
+		visibility: visible;
+	}
+	button {
+		display: -webkit-inline-box;
+		display: inline-flex;
+		background: transparent;
+		border: 0;
+		outline: none;
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		font-weight: bold;
+		align-items: center;
+		padding: 0.2rem 0.5rem;
+		margin-right: 0.2rem;
+		transition: 0.4s ease-in-out all;
+		border-radius: 3px;
+		cursor: pointer;
+		&.is-active {
+			background: rgb(75, 75, 75);
+		}
+	}
+}
+blockquote {
+	border-left: 3px solid var(--pr-rich-editor__blockquote);
+	color: var(--pr-rich-editor__blockquote);
+	padding-left: 0.8rem;
+	font-style: italic;
+}
+code {
+	border-radius: 5px;
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: rgb(255, 255, 255) !important;
+	font-family: 'Victor Mono' !important;
+	font-variant-ligatures: normal !important;
+	* {
+		font-family: 'Victor Mono' !important;
+	}
+}
+pre {
+	padding: 0.2rem 0.6rem;
+
+	background: rgb(0, 0, 0);
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}

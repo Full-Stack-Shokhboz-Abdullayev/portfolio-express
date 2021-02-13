@@ -1,46 +1,85 @@
 .blog-lang {
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 .blog .my-row {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
 }
 .blog .heading {
-    // text-transform: capitalize;
+	// text-transform: capitalize;
 }
 body .main-wrapper .blog-media {
-    width: 300px !important;   
+	width: 300px !important;
 }
 @media (max-width: 1050px) {
-    .blog .signup-form {
-        width: 100% !important;   
-    }
+	.blog .signup-form {
+		width: 100% !important;
+	}
 }
 @media (max-width: 735px) {
-    .blog .heading {
-        font-size: 1.75rem !important;
-    }
+	.blog .heading {
+		font-size: 1.75rem !important;
+	}
 }
 @media (max-width: 640px) {
-    .blog .heading {
-        font-size: 1.5rem !important;
-    }
+	.blog .heading {
+		font-size: 1.5rem !important;
+	}
 }
 @media (max-width: 360px) {
-    .blog .signup-form {
-        flex-direction: column !important;
-        button {
-            margin-top: 10px;
-        }
-        .wrap-input2 {
-            width: 100% !important;
-            margin: 0 !important;
-            input {
-                width: 100% !important;
-                outline: none !important;
-            }
-        }
-    }
+	.blog .signup-form {
+		flex-direction: column !important;
+		button {
+			margin-top: 10px;
+		}
+		.wrap-input2 {
+			width: 100% !important;
+			margin: 0 !important;
+			input {
+				width: 100% !important;
+				outline: none !important;
+			}
+		}
+	}
+}
+
+@import './blog-view';
+@import './add-blog';
+
+.go-back {
+	border-radius: 5px;
+	border: 1px solid var(--pr-text);
+	outline: none;
+	background: transparent;
+	color: var(--pr-text);
+	position: absolute;
+	top: 10px;
+
+	padding: 6px 12px;
+	overflow: hidden;
+	left: 10px;
+	font-size: 18px !important;
+	&:hover {
+		color: var(--pr-stext);
+		border-color: var(--pr-stext);
+		i {
+			animation: goback forwards 0.5s ease;
+		}
+	}
+}
+@keyframes goback {
+	0% {
+		transform: translateX(0px);
+	}
+	50% {
+		transform: translateX(-50px);
+	}
+	51% {
+		transform: translateX(50px);
+	}
+	100% {
+		transform: translateX(0px);
+	}
 }

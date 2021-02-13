@@ -31,11 +31,11 @@
     "subtitle2": "Ulanishni xohlaysizmi? Meni quyidagi ijtimoiy kanallarda kuzatib boring."
   },
   "faqs": {
-    "description": ""
+    "description": "Ko'p so'raladigan savollarga pastroqda javob olishingiz mumkin."
   },
   "footer": {
-    "madeBy": "{beliefyLink} jamoasi a'zosi {owner} tomonidan tayyorlandi.",
     "copyright": "Copyright {year}. Barcha huquqlar himoyalangan. {pp}.",
+    "madeBy": "{beliefyLink} jamoasi a'zosi {owner} tomonidan tayyorlandi.",
     "pp": "Maxfiylik siyosati"
   },
   "header": {
@@ -66,7 +66,7 @@
     "published": "Nashr etilgan sana",
     "readMore": "Ko'proq O'qish",
     "selectLang": "Tilni Tanlang",
-    "subscribe": "",
+    "subscribe": "Obuna Bo'lish",
     "vblog": "",
     "view": "",
     "vprojects": "",
@@ -88,48 +88,51 @@
   "services": {
     "packages": {
       "basic": {
-        "title": ""
+        "details": "Asosan Front-End ga yo'naltirilgan veb-saytlarni ishlab chiqarish. Dizayn mijoz tomonidan taqdim etilishi kerak.",
+        "title": "Boshlang'ich"
       },
       "premium": {
-        "title": ""
+        "details": "Biznes uchun murakkab veb-dastur. Hamma narsa dinamik, shu jumladan Backend, Frontend. Ish muvaffaqiyatli bo'lishiga mo'ljallangan.",
+        "title": "Premium"
       },
       "standard": {
-        "title": ""
+        "details": "O'rta hajmdagi veb-ilova. Statik Backend, Frontend, Maxsus dizayn ishlab chiquvchi tomonidan ta'minlanadi.",
+        "title": "Standart"
       }
     },
     "regulars": {
-      "animations": "",
+      "animations": "Animatsiyalar",
       "backend": {
-        "description": "",
-        "title": ""
+        "description": "Django bilan ma'lumotlarni saqlash va autentifikatsiya qilish bilan Statik Backend.",
+        "title": "Bekend"
       },
       "backendApi": {
-        "description": "",
-        "title": ""
+        "description": "API-ga asoslangan backend - Statik Backend-ga qaraganda tezroq va zamonaviyroq.",
+        "title": "Bekend (API  asosida)"
       },
       "bookNow": "Buyurtma",
-      "days": "",
-      "deliveryTime": "",
-      "design": "",
-      "details": "",
+      "days": "kun",
+      "deliveryTime": "Yetqazib Berish Vaqti",
+      "design": "Maxsus Dizayn",
       "dynamicFrontend": {
-        "description": "",
-        "title": ""
+        "description": "Endi qayta yuklash kerak emas. Sahifalar tezkor va foydalanuvchilar uchun qulay.",
+        "title": "Dinamik Frontend"
       },
       "frontend": {
-        "description": "",
-        "title": ""
+        "description": "PSD yoki Figma dizaynlarini frontend kodga o'tkazish.",
+        "title": "Frontend"
       },
-      "months": "",
-      "prices": ""
+      "months": "oy",
+      "prices": "Narxlar",
+      "responsiveness": "Moslashuvchanlik"
     },
-    "revisions": "",
+    "revisions": "Tuzatmalar",
     "subtitle": {
-      "projects": "",
-      "resume": ""
+      "projects": "portfolio loyihalarim",
+      "resume": "onlayn rezyumemni"
     },
-    "subtitle1": "",
-    "subtitle2": ""
+    "subtitle1": "Menda veb uchun dasturiy ta'minotlar tuzish bo'yicha 1 yillik tajriba mavjud. Mening qobiliyatlarim va tajribam haqimda ko'proq bilish uchun mening {projects} va {resume} ko'rib chiqishingiz mumkin.",
+    "subtitle2": "Hozirda men frilansda dasturiy ta'minotlar ustida ishlamoqdaman. Loyihangiz uchun maxsus narx taklifini olish uchun men bilan bog'lanishingiz mumkin. Shuningdek, men belgilangan narxlarga ega bo'lgan rivojlanish xizmatlari paketlarini taklif qilaman."
   },
   "themes": {
     "dark": "Tungi",

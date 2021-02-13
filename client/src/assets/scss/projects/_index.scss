@@ -1,3 +1,68 @@
+.project-post-form, .faq-post-form {
+	width: 600px;
+	margin-top: 100px !important;
+}
+.type {
+	width: 90px;
+	display: flex;
+	font-size: 14px !important;
+	justify-content: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 2px;
+	cursor: pointer;
+	opacity: 0.6;
+	background: darken($color: $primary, $amount: 20);
+	color: white;
+	transition: 0.3s ease-in-out all !important;
+	.cancel-type {
+		opacity: 0;
+
+		pointer-events: none;
+		position: absolute;
+		transform: translateX(30px);
+	}
+	.select-type {
+		opacity: 0;
+
+		pointer-events: none;
+		position: absolute;
+		transform: translateX(-30px);
+	}
+	&:hover {
+		opacity: 1;
+
+		.select-type {
+			transform: translateX(0px);
+			opacity: 1;
+		}
+		.type-name {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+	.cancel-type,
+	.type-name,
+	.select-type {
+		transition: 0.3s ease-in-out all;
+	}
+	&.selected {
+		opacity: 1;
+
+		&:hover {
+			.cancel-type {
+				opacity: 1;
+				transform: translateX(0px);
+			}
+			.select-type {
+				transform: translateX(-30px) !important;
+				opacity: 0 !important;
+			}
+		}
+		background: $primary;
+	}
+}
+
 .filters {
 	list-style: none;
 	font-size: 0.875rem;
@@ -29,6 +94,9 @@
 	.card-img-holder {
 		height: 100%;
 	}
+}
+.isotope {
+	min-height: 320px;
 }
 .isotope-item {
 	height: auto !important;
@@ -108,10 +176,12 @@
 		width: 550px !important;
 		margin: auto !important;
 	}
+	.isotope {
+		min-height: 420px;
+	}
 }
 
 @media (max-width: 992px) {
-
 	.card-img-holder,
 	.card-img {
 		width: 180px !important;
@@ -149,10 +219,10 @@
 	.projects .card {
 		height: auto !important;
 		width: 80% !important;
-		margin: 0 10% !important;	
+		margin: 0 10% !important;
 		.card-img-holder {
 			width: 100% !important;
-			
+
 			img {
 				width: 100% !important;
 			}
@@ -162,10 +232,23 @@
 @media (max-width: 420px) {
 	.projects .card {
 		width: 90% !important;
-		margin: 0 5% !important;	
+		margin: 0 5% !important;
 	}
 	.projects-list {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
+	}
+	.project-post-form {
+		width: 350px !important;
+		.type {
+			width: 22%;
+			font-size: 12px !important;
+		}
+	}
+}
+
+@media (max-width: 370px) {
+	.project-post-form {
+		width: 95% !important;
 	}
 }

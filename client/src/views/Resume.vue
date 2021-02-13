@@ -4,11 +4,11 @@
 	<div class="main-wrapper">
 		<section class="cta-section theme-bgs py-5">
 			<div class="container text-center single-col-max-width">
-				<h2 class="heading mb-3">{{$t('resume.title')}}</h2>
-				<a
-					class="btn"
-					download=""
-					href="../assets/Shokhboz_Abdullayev_DevResume.pdf"
+				<h2 class="heading mb-3">{{ $t('resume.title') }}</h2>
+				<button
+					class="btn position-relative"
+					:class="{ disable: loading }"
+					@click="downloadWithCSS"
 				>
 					<svg
 						class="svg-inline--fa fa-file-pdf fa-w-12 mr-2"
@@ -26,12 +26,17 @@
 							d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"
 						/>
 					</svg>
-					{{$t('resume.download')}}
-				</a>
+					<app-loading
+						:condition="loading"
+						:small="true"
+						v-if="loading"
+					></app-loading>
+					{{ $t('resume.download') }}
+				</button>
 			</div>
 			<!--//container-->
 		</section>
-		<div class="container px-3 px-lg-5">
+		<div id="page-template" ref="resum" class="container px-3 px-lg-5">
 			<article
 				class="resume-wrapper mx-auto theme-bg-light p-5 mb-5 my-5 shadow-lg"
 			>
@@ -156,7 +161,7 @@
 					>
 						<img
 							class="resume-profile-image mb-3 mb-md-0 mr-md-5 ml-md-0 mx-auto"
-							src="../assets/me2.jpg"
+							src="../assets/img/me2.jpg"
 							alt="image"
 						/>
 						<div class="media-body text-left">
@@ -206,26 +211,38 @@
 								>
 									{{ $t('resume.sections.projects') }}
 								</h3>
-								<div class="item mb-3">
+								<app-loading
+									:condition="projectsLoading"
+								></app-loading>
+								<div
+									v-show-slide:500:ease-in-out="
+										!projectsLoading
+									"
+								>
 									<div
-										class="item-heading row align-items-center mb-2"
+										v-for="(project, index) in projects"
+										:key="index"
+										class="item mb-3"
 									>
-										<h4
-											class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0"
-										>
-											To Do List
-										</h4>
 										<div
-											class="item-meta col-12 col-md-6 col-lg-4 text-mutedl text-left text-md-right"
+											class="item-heading row align-items-center mb-2"
 										>
-											Open Source
+											<h4
+												class="item-title col-12 col-md-6 col-lg-8 mb-2 mb-md-0"
+											>
+												{{ project.title }}
+											</h4>
+											<div
+												class="item-meta col-12 col-md-6 col-lg-4 text-mutedl text-left text-md-right"
+											>
+												Open Source
+											</div>
 										</div>
-									</div>
-									<div class="item-content">
-										<p>
-											Simple To Do List. Was built using
-											React.js and Django Rest Framework.
-										</p>
+										<div class="item-content">
+											<p>
+												{{ project.description }}
+											</p>
+										</div>
 									</div>
 								</div>
 								<!--//item-->
@@ -369,7 +386,10 @@
 						class="resume-social-list list-inline mx-auto mb-0 d-inline-block text-mutedl"
 					>
 						<li class="list-inline-item mb-lg-0 mr-5">
-							<a class="resume-link" href="https://github.com/Full-Stack-Shokhboz-Abdullayev/">
+							<a
+								class="resume-link"
+								href="https://github.com/Full-Stack-Shokhboz-Abdullayev/"
+							>
 								<svg
 									class="svg-inline--fa fa-github-square fa-w-14 mr-2 fa-2x"
 									data-fa-transform="down-4"
@@ -404,7 +424,10 @@
 							>
 						</li>
 						<li class="list-inline-item mb-lg-0">
-							<a class="resume-link" href="https://www.linkedin.com/in/shokhboz-abdullayev-8545b01b9/">
+							<a
+								class="resume-link"
+								href="https://www.linkedin.com/in/shokhboz-abdullayev-8545b01b9/"
+							>
 								<svg
 									class="svg-inline--fa fa-linkedin fa-w-14 fa-2x mr-2"
 									data-fa-transform="down-4"
@@ -445,11 +468,69 @@
 		</div>
 		<!--//container-->
 	</div>
-	<!-- eslint-enable no-mixed-spaces-and-tabs -->
 </template>
 
 <script>
-export default {};
+import { mapState, mapActions, mapGetters } from 'vuex'
+import html2pdf from 'html2pdf.js'
+// import { DocRaptor } from '@/components/jsComponents/docRaptor.js'
+export default {
+	data() {
+		return {
+			loading: false
+		}
+	},
+	computed: {
+		...mapState('Projects', ['projects']),
+		...mapGetters('Projects', ['projectsLoading'])
+	},
+	mounted() {
+		if (this.projects.length === 0) {
+			this.setProjects()
+		}
+	},
+	methods: {
+		async downloadWithCSS() {
+			if (this.loading !== true) {
+				const el = this.$refs.resum
+
+				this.loading = true
+				var opt = {
+					margin: 0,
+					filename: this.$t('owner') + '.pdf',
+					image: { type: 'png' },
+					pagebreak: { mode: ['avoid-all'] },
+					html2canvas: { scale: 2 },
+					jsPDF: {
+						unit: 'in',
+						format: 'letter',
+						orientation: 'landscape'
+					}
+				}
+				await html2pdf().set(opt).from(el).save()
+				this.loading = false
+			}
+		},
+		// downloadPDF() {
+		// 	DocRaptor.createAndDownloadDoc('YOUR_API_KEY_HERE', {
+		// 		test: true, // test documents are free, but watermarked
+		// 		type: 'pdf',
+		// 		document_content: this.$refs.resum.innerHTML, // use this page's HTML
+		// 		prince_options: {
+		// 			media: 'screen' // use screen styles instead of print styles
+		// 		},
+		// 		javascript: true // enable JavaScript processing
+		// 		// or use a URL
+		// 	})
+		// },
+		...mapActions('Projects', ['setProjects'])
+	},
+	head() {
+		return {
+			title: 'Resume'
+		}
+	}
+}
 </script>
 
 <style></style>

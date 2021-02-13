@@ -4,6 +4,26 @@
 	margin-right: auto;
 	margin-left: auto;
 }
+@-webkit-keyframes load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes load8 {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
 .about-me-section {
 	display: block;
 
@@ -11,7 +31,9 @@
 		font-size: 3rem !important;
 	}
 }
-
+.no-gutters {
+	height: 100% !important;
+}
 .overview-section {
 	.js {
 		color: #f1de4f;
@@ -139,23 +161,16 @@
 		width: 300px !important;
 	}
 }
-body .main-wrapper .featured-section {
-	.card-wrapper {
-		
-	}
 
+body .main-wrapper .featured-section {
 	.card {
 		width: 480px !important;
 		height: 165px !important;
 	}
 }
 
-.main-wrapper {
-	perspective: 1600px;
-	perspective-origin: 50% 50%;
-}
-
 .project-card-img {
+	height: 165px;
 	img {
 		width: 100%;
 		height: 100%;
@@ -176,18 +191,27 @@ body .main-wrapper .featured-section {
 .observable {
 	opacity: 0;
 	pointer-events: none;
-	transition: 0.4s ease-in-out all;
+	// transition: 0.4s ease-in-out all;
 	&.intersected {
-		opacity: 1 !important;
-		pointer-events: all !important;
+		animation: intersectedAnimation 0.4s ease-in-out forwards;
+	}
+}
+
+@keyframes intersectedAnimation {
+	from {
+		transform: translateY(40px);
+		opacity: 0;
+		pointer-events: none;
+	}
+	to {
+		transform: translateY(0px);
+		opacity: 1;
+		pointer-events: all;
 	}
 }
 
 .watch {
 	font-size: 16px !important;
-}
-
-.about-me-section {
 }
 
 @media (max-width: 1520px) {
@@ -212,8 +236,7 @@ body .main-wrapper .featured-section {
 	}
 }
 @media (max-width: 991px) {
-	.latest-blog-section{
-		
+	.latest-blog-section {
 		.card {
 			flex: 1 !important;
 		}
@@ -223,22 +246,23 @@ body .main-wrapper .featured-section {
 			margin-top: 20px;
 		}
 		.card-wrapper {
-			height: 395px !important;
+			min-height: 495px !important;
+
 			margin: 20px 0px;
 			width: 390px !important;
 			.btn {
-				font-size: .875rem !important;
+				font-size: 0.875rem !important;
 			}
 		}
 		.card {
-			width: 100% !important;
+			width: 342px !important;
 			height: auto !important;
+			min-height: 395px;
 			.project-card-img {
 				width: 100% !important;
 				height: 230px !important;
 			}
 		}
-		
 	}
 }
 @media (max-width: 930px) {
@@ -246,15 +270,25 @@ body .main-wrapper .featured-section {
 		width: 90% !important;
 	}
 }
-
-
+@media (max-width: 841px) {
+	body .main-wrapper .featured-section {
+		.card-wrapper {
+			width: 342px !important;
+			margin: 0 !important;
+			padding-right: 0px !important;
+			padding-left: 0px !important;
+			padding-top: 20px !important;
+			padding-bottom: 20px !important;
+			min-height: 395px !important;
+		}
+	}
+}
 @media (max-width: 505px) {
 	.featured-section .card-wrapper {
 		width: 100% !important;
 	}
 }
 @media (max-width: 455px) {
-	
 	.featured-section .card-wrapper {
 		padding-left: 0px !important;
 		padding-right: 0px !important;
@@ -270,6 +304,20 @@ body .main-wrapper .featured-section {
 			font-size: 1.5rem !important;
 		}
 	}
+	body .main-wrapper {
+		.blog-post-card {
+			width: 302px !important;
+		}
+
+		.featured-section {
+			.card-wrapper {
+				width: 302px !important;
+			}
+			.card {
+				width: 302px !important;
+			}
+		}
+	}
 }
 @media (max-width: 350px) {
 	.about-me-section {
@@ -281,8 +329,21 @@ body .main-wrapper .featured-section {
 }
 @media (max-width: 345px) {
 	.featured-section .card-wrapper {
-		.link-mask{
+		.link-mask {
 			width: 80% !important;
+		}
+	}
+	body .main-wrapper {
+		.blog-post-card {
+			width: 272px !important;
+		}
+		.featured-section {
+			.card-wrapper {
+				width: 272px !important;
+			}
+			.card {
+				width: 272px !important;
+			}
 		}
 	}
 }

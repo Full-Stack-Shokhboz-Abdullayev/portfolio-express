@@ -1,3 +1,15 @@
+.customize-faqs {
+	position: absolute !important;
+	right: 3% !important;
+	height: 100%;
+	top: 0px;
+	display: flex;
+	align-items: center;
+	button {
+		transform: scale(0.8);
+	}
+}
+
 .table-bordered {
 	border: 1px solid #a9a9a9;
 }
@@ -84,6 +96,13 @@ tr {
 .heading {
 	font-size: 2rem !important;
 	font-weight: bold !important;
+}
+.faq-accordion {
+	display: flex !important;
+	flex-direction: column;
+	width: 100%;
+	padding: 0;
+	margin: 0;
 }
 .faq-accordion .card-toggle {
 	color: var(--#{$pr}-text);

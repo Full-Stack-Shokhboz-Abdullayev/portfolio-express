@@ -83,13 +83,13 @@
 								{{ $t('services.regulars.prices') }}
 							</th>
 							<td class="pricing-1-data shown">
-								<span class="price-number">$900</span>
+								<span class="price-number">$200</span>
 							</td>
 							<td class="pricing-2-data mobile-is-hidden">
-								<span class="price-number">$2500</span>
+								<span class="price-number">$2000</span>
 							</td>
 							<td class="pricing-3-data mobile-is-hidden">
-								<span class="price-number">$5000+</span>
+								<span class="price-number">$3600+</span>
 							</td>
 						</tr>
 
@@ -98,25 +98,19 @@
 								{{ $t('services.regulars.details') }}
 							</th>
 							<td class="pricing-1-data shown">
-								<span class="pricing-package-desc"
-									>A small app lorem ipsum dolor sit amet,
-									consectetuer adipiscing elit. Aenean commodo
-									ligula eget dolor.</span
-								>
+								<span class="pricing-package-desc">{{
+									$t('services.packages.basic.details')
+								}}</span>
 							</td>
 							<td class="pricing-2-data mobile-is-hidden">
-								<span class="pricing-package-desc"
-									>An medium app lorem ipsum dolor sit amet,
-									consectetuer adipiscing elit. Aenean commodo
-									ligula eget dolor.</span
-								>
+								<span class="pricing-package-desc">{{
+									$t('services.packages.standard.details')
+								}}</span>
 							</td>
 							<td class="pricing-3-data mobile-is-hidden">
-								<span class="pricing-package-desc"
-									>A complex app lorem ipsum dolor sit amet,
-									consectetuer adipiscing elit. Aenean commodo
-									ligula eget dolor.</span
-								>
+								<span class="pricing-package-desc">{{
+									$t('services.packages.premium.details')
+								}}</span>
 							</td>
 						</tr>
 
@@ -262,8 +256,8 @@
 										$t(
 											'services.regulars.dynamicFrontend.description'
 										)
-									}}</small
-								>
+									}}
+								</small>
 							</th>
 							<td class="pricing-1-data shown">
 								<span class="text-muted">–</span>
@@ -337,6 +331,51 @@
 								scope="row"
 							>
 								{{ $t('services.regulars.design') }}
+							</th>
+							<td class="pricing-1-data shown">-</td>
+							<td class="pricing-2-data mobile-is-hidden">
+								<svg
+									class="svg-inline--fa fa-check fa-w-16 primary"
+									aria-hidden="true"
+									focusable="false"
+									data-prefix="fas"
+									data-icon="check"
+									role="img"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 512 512"
+									data-fa-i2svg=""
+								>
+									<path
+										fill="currentColor"
+										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+									/>
+								</svg>
+							</td>
+							<td class="pricing-3-data mobile-is-hidden">
+								<svg
+									class="svg-inline--fa fa-check fa-w-16 primary"
+									aria-hidden="true"
+									focusable="false"
+									data-prefix="fas"
+									data-icon="check"
+									role="img"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 512 512"
+									data-fa-i2svg=""
+								>
+									<path
+										fill="currentColor"
+										d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+									/></svg
+								><!-- <i class="fas fa-check primary"></i> Font Awesome fontawesome.com -->
+							</td>
+						</tr>
+						<tr class="pricing-feature-row">
+							<th
+								class="pricing-feature-row-name pricing-0-data"
+								scope="row"
+							>
+								{{ $t('services.regulars.responsiveness') }}
 							</th>
 							<td class="pricing-1-data shown">
 								<svg
@@ -481,10 +520,10 @@
 								7 {{ $t('services.regulars.days') }}
 							</td>
 							<td class="pricing-2-data mobile-is-hidden">
-								14 {{ $t('services.regulars.days') }}
+								26 {{ $t('services.regulars.days') }}
 							</td>
 							<td class="pricing-3-data mobile-is-hidden">
-								2 - 3 {{ $t('services.regulars.months') }}
+								1 - 2 {{ $t('services.regulars.months') }}
 							</td>
 						</tr>
 					</tbody>
@@ -521,11 +560,18 @@
 				<div class="text-center mb-5">
 					{{ $t('faqs.description') }}
 				</div>
-				<div id="faq-accordion" class="faq-accordion mx-auto">
-					<div
+				<app-loading :condition="faqsLoading"></app-loading>
+				<transition-group
+					name="list-item"
+					tag="ul"
+					appear
+					id="faq-accordion"
+					class="faq-accordion mx-auto position-relative"
+				>
+					<li
 						v-for="(faq, index) in faqs"
-						:key="index"
-						class="card border-0 mb-3 theme-bgs fafa"
+						:key="faq._id"
+						class="card border-0 mb-3 theme-bgs fafa d-inline-block"
 					>
 						<div
 							class="card-header border-0 p-3 theme-bg-light"
@@ -539,7 +585,7 @@
 									aria-expanded="false"
 								>
 									<svg
-										:class="{ rotate: faq.isOpen }"
+										:class="{ rotate: !faq.isOpen }"
 										class="svg-inline--fa fa-chevron-down fa-w-14 ease-in-out"
 										aria-hidden="true"
 										focusable="false"
@@ -557,19 +603,95 @@
 									</svg>
 									{{ faq.question }}
 								</p>
+								<transition name="fade">
+									<div v-if="editMode" class="customize-faqs">
+										<button
+											@click.stop="startEditing(faq)"
+											class="btn mr-1"
+										>
+											<i class="fal fa-pencil"></i>
+										</button>
+										<button
+											@click.stop="deleteFaq(faq._id)"
+											class="btn btn-danger m-0"
+										>
+											<i class="fal fa-trash"></i>
+										</button>
+									</div>
+								</transition>
 							</h4>
 						</div>
 
-						<div v-show-slide:400:custom="faq.isOpen" class="">
+						<div v-show-slide:400:custom="!faq.isOpen" class="">
 							<div class="card-body pt-0 theme-bg-light">
 								{{ faq.answer }}
 							</div>
-							<!--//card-body-->
 						</div>
-					</div>
-					<!--//card-->
-				</div>
+					</li>
+				</transition-group>
+
 				<!--//faq-accordion-->
+				<form
+					v-show-slide:400="editMode"
+					class="mx-auto faq-post-form mt-5"
+					@submit.prevent="checkAndPost({ faqId: newFaq._id })"
+				>
+					<h4 class="text-center mb-4">Add Faq</h4>
+					<div
+						class="wrap-input2 w-100 validate-input"
+						data-validate="Name is required"
+					>
+						<input
+							autocomplete="off"
+							class="input2 w-100"
+							type="text"
+							name="name"
+							required
+							@change="validate"
+							v-model="newFaq.question"
+						/>
+						<div class="grey"></div>
+						<div class="slide"></div>
+						<div class="cword">Question</div>
+					</div>
+
+					<div
+						class="wrap-input2 validate-input"
+						data-validate="Message is required"
+					>
+						<textarea
+							v-model="newFaq.answer"
+							autocomplete="off"
+							class="input2 w-100"
+							name="message"
+							required
+							@change="validate"
+						/>
+						<div class="grey"></div>
+						<div class="slide"></div>
+						<div class="cword">Answer</div>
+					</div>
+
+					<div
+						class="container-contact2-form-btn d-flex justify-content-center align-items-center"
+					>
+						<button class="contact2-form-btn btn w-50">Add</button>
+						<transition name="fade">
+							<button
+								type="button"
+								@click="cancelEditing"
+								v-if="newFaq._id"
+								class="btn btn-danger w-25 ml-4"
+							>
+								<app-loading
+									:condition="postLoading"
+									:small="true"
+								></app-loading>
+								Cancel Edit
+							</button>
+						</transition>
+					</div>
+				</form>
 			</div>
 			<!--//container-->
 		</section>
@@ -579,141 +701,102 @@
 </template>
 
 <script>
+import { mapState, mapActions, mapGetters } from 'vuex'
+import validate from '@/assets/jsComponents/validate'
+
+//true va false shart
+
+
+
 export default {
-	data: () => ({
-		faqs: [
-			{
-				question: 'Can you sit amet quam eget lacinia?',
-				answer: `
-						Lorem ipsum dolor sit amet,
-						consectetuer adipiscing elit.
-						Aenean commodo ligula eget dolor.
-						Aenean massa.
-						Cum sociis natoque penatibus et
-						magnis dis parturient montes,
-						nascetur ridiculus mus. 
-						Donec quam felis,
-						ultricies nec, 
-						pellentesque eu, pretium quis, sem. 
-						Nulla consequat massa quis enim. 
-						Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-						arcu. 
-						In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-						justo. Nullam dictum felis eu pede mollis pretium. 
-		            `,
-				isOpen: false
+	data() {
+		return {
+			newFaq: {
+				question: '',
+				answer: ''
 			},
-			{
-				question: 'Can you sit amet quam eget lacinia?',
-				answer: `
-						Lorem ipsum dolor sit amet,
-						consectetuer adipiscing elit.
-						Aenean commodo ligula eget dolor.
-						Aenean massa.
-						Cum sociis natoque penatibus et
-						magnis dis parturient montes,
-						nascetur ridiculus mus. 
-						Donec quam felis,
-						ultricies nec, 
-						pellentesque eu, pretium quis, sem. 
-						Nulla consequat massa quis enim. 
-						Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-						arcu. 
-						In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-						justo. Nullam dictum felis eu pede mollis pretium. 
-		            `,
-				isOpen: false
-			},
-			{
-				question: 'Can you sit amet quam eget lacinia?',
-				answer: `
-						Lorem ipsum dolor sit amet,
-						consectetuer adipiscing elit.
-						Aenean commodo ligula eget dolor.
-						Aenean massa.
-						Cum sociis natoque penatibus et
-						magnis dis parturient montes,
-						nascetur ridiculus mus. 
-						Donec quam felis,
-						ultricies nec, 
-						pellentesque eu, pretium quis, sem. 
-						Nulla consequat massa quis enim. 
-						Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-						arcu. 
-						In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-						justo. Nullam dictum felis eu pede mollis pretium. 
-		            `,
-				isOpen: false
-			},
-			{
-				question: 'Can you sit amet quam eget lacinia?',
-				answer: `
-						Lorem ipsum dolor sit amet,
-						consectetuer adipiscing elit.
-						Aenean commodo ligula eget dolor.
-						Aenean massa.
-						Cum sociis natoque penatibus et
-						magnis dis parturient montes,
-						nascetur ridiculus mus. 
-						Donec quam felis,
-						ultricies nec, 
-						pellentesque eu, pretium quis, sem. 
-						Nulla consequat massa quis enim. 
-						Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-						arcu. 
-						In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-						justo. Nullam dictum felis eu pede mollis pretium. 
-		            `,
-				isOpen: false
-			},
-			{
-				question: 'Can you sit amet quam eget lacinia?',
-				answer: `
-						Lorem ipsum dolor sit amet,
-						consectetuer adipiscing elit.
-						Aenean commodo ligula eget dolor.
-						Aenean massa.
-						Cum sociis natoque penatibus et
-						magnis dis parturient montes,
-						nascetur ridiculus mus. 
-						Donec quam felis,
-						ultricies nec, 
-						pellentesque eu, pretium quis, sem. 
-						Nulla consequat massa quis enim. 
-						Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-						arcu. 
-						In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-						justo. Nullam dictum felis eu pede mollis pretium. 
-		            `,
-				isOpen: false
-			}
-		]
-	}),
+			postLoading: false
+		}
+	},
+	computed: {
+		...mapState(['editMode']),
+		...mapState('Faqs', ['faqs']),
+		...mapGetters('Faqs', ['faqsLoading'])
+	},
+	mounted() {
+		this.setFaqs()
+	},
 	methods: {
+		validate,
 		openUp(event, index) {
-			console.log(event);
-			console.log(index);
-			this.faqs[index].isOpen = !this.faqs[index].isOpen;
-			console.log(this.faqs[index].isOpen);
+			console.log(event)
+			console.log(index)
+			this.faqs[index].isOpen = !this.faqs[index].isOpen
+			console.log(this.faqs[index].isOpen)
 		},
 		switchPackages(event) {
-			const target = event.target.dataset.target;
-			const shown = document.querySelectorAll('.shown');
-			const inactives = document.querySelectorAll('.pricing-tab');
-			const tableColumns = document.querySelectorAll('.' + target);
+			const target = event.target.dataset.target
+			const shown = document.querySelectorAll('.shown')
+			const inactives = document.querySelectorAll('.pricing-tab')
+			const tableColumns = document.querySelectorAll('.' + target)
 			inactives.forEach((i) => {
-				i.classList.add('inactive');
-			});
-			event.target.classList.remove('inactive');
+				i.classList.add('inactive')
+			})
+			event.target.classList.remove('inactive')
 			shown.forEach((t) => {
-				t.classList.remove('shown');
-			});
+				t.classList.remove('shown')
+			})
 			tableColumns.forEach((t) => {
-				t.classList.add('shown');
-			});
+				t.classList.add('shown')
+			})
+		},
+		cancelEditing() {
+			this.newFaq = {
+				question: '',
+				answer: ''
+			}
+			document
+				.querySelectorAll('.faq-post-form .wrap-input2')
+				.forEach((i) => {
+					i.classList.remove('filled')
+				})
+		},
+
+		startEditing(obj) {
+			this.newFaq = { ...obj }
+			document
+				.querySelectorAll('.faq-post-form .wrap-input2')
+				.forEach((i) => {
+					i.classList.add('filled')
+				})
+		},
+		checkAndPost(obj) {
+			// this.postLoading = true
+
+			if (obj.faqId) {
+				this.updateFaq(this.newFaq)
+			} else {
+				this.postFaq(this.newFaq)
+			}
+			this.cancelEditing()
+			// this.postLoading = false
+		},
+		shuffled() {
+			this.faqs = this.faqs.sort(() => 0.5 - Math.random())
+		},
+		...mapActions('Faqs', ['setFaqs', 'postFaq', 'deleteFaq', 'updateFaq'])
+	},
+	watch: {
+		newFaq() {
+			console.log(this.faqs)
+		}
+	},
+	head() {
+		return {
+			title: 'Services & Prices'
 		}
 	}
-};
+}
 </script>
 
 <style scoped>
@@ -754,5 +837,32 @@ export default {
 	to {
 		opacity: 1;
 	}
+}
+.faq-accordion {
+	transition: 0.3s ease height !important;
+	height: auto;
+}
+
+.list-item-enter {
+	opacity: 0 !important;
+	pointer-events: none !important;
+	transform: translateY(100%) scale(0.8) !important;
+}
+
+.list-item-enter-active {
+	transition: 0.6s ease all;
+}
+
+.list-item-leave-active {
+	transition: 0.4s ease all;
+	opacity: 0;
+
+	width: 100%;
+	position: absolute;
+	z-index: -10;
+}
+
+.list-item-move {
+	transition: 0.6s ease all !important;
 }
 </style>
