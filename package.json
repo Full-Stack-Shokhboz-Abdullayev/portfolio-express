@@ -35,7 +35,7 @@
     "path": "^0.12.7",
     "slugify": "^1.4.6",
     "xss-clean": "^0.1.1",
-    "colors": "^1.4.0",
+    "colors": "^1.4.0"
   },
   "devDependencies": {
     "color": "^3.1.3",
