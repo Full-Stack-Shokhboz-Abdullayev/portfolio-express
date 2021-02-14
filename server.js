@@ -28,15 +28,10 @@ const morgan = require("morgan")
 const MODE = process.env.NODE_ENV || "production"
 
 // Morgan logger package if development
-if (process.env.NODE_ENV === "development") {
+if (MODE === "development") {
 	const morgan = require("morgan")
 	app.use(morgan("dev"))
 	// * > client/build/public/index.html
-} else if (MODE === "production") {
-	app.use(express.static(__dirname + "/client/dist/"))
-	app.get(/.*/, (req, res) => {
-		res.sendFile(__dirname + "/client/dist/index.html")
-	})
 }
 
 
