@@ -34,18 +34,16 @@ if (MODE === "development") {
 	// * > client/build/public/index.html
 }
 
-
-
-
 //Enabling cors
 const corsOptions = {
 	origin: "http://localhost:8080",
-	optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+	credentials: true
+	// optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-if (process.env.NODE_ENV === "production") {
-	corsOptions.origin = 'https://shox-pro.com'
-}
+// if (process.env.NODE_ENV === "production") {
+// 	corsOptions.origin = "https://shox-pro.com"
+// }
 
 app.use(cors(corsOptions))
 
@@ -55,24 +53,21 @@ app.use(express.json())
 //sanitize Data
 app.use(mongoSanitize())
 
-// Set Security Headers
+// // Set Security Headers
 app.use(helmet())
 
-// Prevent Xss attacks
+// // Prevent Xss attacks
 app.use(xssClean())
 
 // Rate limiting
 const limiter = expressRateLimit({
 	windowMs: 10 * 60 * 1000,
-	max: 100 
+	max: 100
 })
 app.use(limiter)
 
 // Cookie Parser
 app.use(cookieParser())
-
-
-
 
 // Routes and Controllers
 const projectsRouter = require("./routes/about/projects")

@@ -8,12 +8,15 @@ const {
 	deleteBlog,
 	updateBlog,
 	deleteAll,
-	drop
+	drop,
+	clap
 } = require("../../controllers/blogs/blogs")
 
 const { protect, authorize } = require("../../middleware/auth")
 
 router.route("/").get(getAllBlogs).post(protect, authorize("admin"), postBlog)
+
+router.route('/:id/clap').put(clap)
 
 router.route("/latest").get(getLatestBlogs)
 

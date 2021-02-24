@@ -3,7 +3,6 @@ const ErrorResponse = require("../utils/ErrorResponse")
 const User = require("../models/User")
 const sendEmail = require("../utils/sendEmail")
 const crypto = require("crypto")
-const { findById } = require("../models/User")
 
 // @ROUTE         '/auth/register'
 // @DESC          Registration
@@ -51,6 +50,15 @@ exports.login = asyncHandler(async (req, res, next) => {
 	sendTokenResponse(user, 200, res)
 })
 
+// @ROUTE         '/auth/auto-login'
+// @DESC          Auto Login Via Token
+// @METHOD        POST
+// @ACCESS		  Private/Admin Only
+
+exports.autoLogin = asyncHandler(async (req, res) => {
+	res.status(200).json({ success: true, user: req.user })
+})
+
 // @ROUTE         '/auth/logout'
 // @DESC          Logout / Clear Cookie
 // @METHOD        GET
@@ -60,10 +68,12 @@ exports.logout = asyncHandler(async (req, res) => {
 	res.cookie("token", "none", {
 		expires: new Date(Date.now() + 10 * 1000),
 		httpOnly: true
-	}).status(200).json({
-		sucess: true,
-		data: {}
 	})
+		.status(200)
+		.json({
+			success: true,
+			msg: "Logged out."
+		})
 })
 
 // @ROUTE         '/auth/forgot-password'
@@ -193,11 +203,14 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
 const sendTokenResponse = async (user, statusCode, res) => {
 	const token = await user.getSignedJwtToken()
 
+	console.log(process.env.JWT_COOKIE_EXPIRE)
 	const options = {
 		expires: new Date(
-			Date.now + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+			Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
 		),
-		httpOnly: true
+		sameSite: "None",
+		httpOnly: true,
+		secure: true
 	}
 
 	if (process.env.NODE_ENV === "production") {
@@ -205,6 +218,7 @@ const sendTokenResponse = async (user, statusCode, res) => {
 	}
 	res.status(statusCode).cookie("token", token, options).json({
 		success: true,
+		user,
 		token
 	})
 }

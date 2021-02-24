@@ -4,24 +4,8 @@ const Blog = require("../../models/blogs/Blog")
 const Newsletter = require("../../models/blogs/Newsletter")
 const slugify = require("slugify")
 const nodemailer = require("nodemailer")
+const sendMail = require("../../utils/sendEmail")
 
-let transport
-
-nodemailer.createTestAccount((err, account) => {
-	transport = nodemailer.createTransport({
-		host: "smtp.ethereal.email",
-		port: 587,
-		secure: false,
-		auth: {
-			user: account.user, // generated ethereal user
-			pass: account.pass // generated ethereal password
-		},
-		tls: {
-			// do not fail on invalid certs
-			rejectUnauthorized: false
-		}
-	})
-})
 // @ROUTE         '/blogs'
 // @DESC          Get All Blogs
 // @METHOD        GET
@@ -63,14 +47,16 @@ exports.getLatestBlogs = asyncHandler(async (req, res) => {
 // @METHOD        GET
 // @ACCESS		  Public
 
-exports.getSingleBlog = asyncHandler(async (req, res) => {
+exports.getSingleBlog = asyncHandler(async (req, res, next) => {
 	const { slug } = req.params
 	const blog = await Blog.findOne({
 		slug
 	}).select("-sortDate")
 
 	if (!blog) {
-		new ErrorResponse(`Not Found a Blog with an slug of ${slug}!`, 404)
+		return next(
+			new ErrorResponse(`Not Found a Blog with an slug of ${slug}!`, 404)
+		)
 	}
 	res.status(200).send({
 		success: true,
@@ -90,36 +76,21 @@ exports.postBlog = asyncHandler(async (req, res) => {
 	})
 
 	if (!newBlog) {
-		new ErrorResponse(`Can not add a Blog!`, 500)
+		return next(new ErrorResponse(`Error can not add a blog!`, 500))
 	} else {
+		
+		const subscribers = await Newsletter.find({})
+		console.log(subscribers);
+		await sendMail({
+			email: subscribers.map((subscriber) => subscriber.email).join(', '),
+			subject: "New Post in shox-pro.com: " + newBlog.heading,
+			message: `${newBlog.tag} Full Post Can Be Read Here http://localhost:8080/blog/${newBlog.slug}
+			`
+		})
 		res.status(200).send({
 			success: true,
 			msg: `Added a new blog!`,
 			data: newBlog
-		})
-
-		let message = {
-			from: "shokhboz11abdullayev@gmail.com" // Sender address
-		}
-
-		const subscribers = await Newsletter.find({})
-		subscribers.forEach((i) => {
-			message.to = i.email
-			message.html = `
-			<h1>New Blog from <a href="https://shox-pro.com">shox-pro.com</a></h1>
-			<h2>${newBlog.heading}</h2> 
-			<p>
-				${newBlog.tag}
-			</p>
-			<a href="localhost:8080/blogs/${newBlog.slug}">Read More</a>
-			`
-			transport.sendMail(message, function (err, info) {
-				if (err) {
-					console.log(err)
-				} else {
-					console.log(info)
-				}
-			})
 		})
 	}
 })
@@ -204,5 +175,27 @@ exports.drop = asyncHandler(async (req, res) => {
 	res.status(200).json({
 		sucess: true,
 		msg: `Dropped!`
+	})
+})
+
+// @ROUTE         '/blogs/clap'
+// @DESC          Clap
+// @METHOD        PUT
+// @ACCESS		  Public
+
+exports.clap = asyncHandler(async (req, res) => {
+	const blog = await Blog.findByIdAndUpdate(
+		req.params.id,
+		{
+			...req.body
+		},
+		{ new: true, runValidators: true }
+	)
+
+	res.status(200).json({
+		success: true,
+		data: {
+			claps: blog.claps
+		}
 	})
 })
