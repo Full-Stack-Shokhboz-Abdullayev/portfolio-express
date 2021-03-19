@@ -3,6 +3,15 @@ const slugify = require("slugify")
 
 const BlogSchema = new mongoose.Schema(
 	{
+		poster: {
+			type: String,
+			required: [true, "Please fill in this field!"]
+		},
+		posterType: {
+			type: String,
+			enum: ["image", "video"],
+			required: [true, "Please fill in this field!"]
+		},
 		heading: {
 			type: String,
 			maxLength: 50,

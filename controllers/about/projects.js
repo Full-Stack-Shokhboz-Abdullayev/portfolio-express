@@ -10,7 +10,7 @@ const asyncHandler = require("../../middleware/async")
 exports.getAllProjects = asyncHandler(async (req, res) => {
 	const projects = await Project.find().sort('-completedDate')
 	res.status(200).json({
-		sucess: true,
+		success: true,
 		msg: "Found all Projects in Database.",
 		count: projects.length,
 		data: projects
@@ -25,7 +25,7 @@ exports.getAllProjects = asyncHandler(async (req, res) => {
 exports.getFeaturedProjects = asyncHandler(async (req, res) => {
 	const projects = await Project.find().sort({completedDate: -1}).limit(4)
 	res.status(200).json({
-		sucess: true,
+		success: true,
 		msg: "Found Featured Projects in Database.",
 		count: projects.length,
 		data: projects
@@ -40,7 +40,7 @@ exports.getFeaturedProjects = asyncHandler(async (req, res) => {
 exports.postProject = asyncHandler(async (req, res) => {
 	const newProject = await Project.create(req.body)
 	res.status(200).json({
-		sucess: true,
+		success: true,
 		msg: `${newProject.title} was posted successfully!`,
 		data: newProject
 	})
@@ -60,7 +60,7 @@ exports.deleteProject = asyncHandler(async (req, res) => {
 		)
 	}
 	res.status(200).json({
-		sucess: true,
+		success: true,
 		msg: `Project with an id of ${id} was deleted successfully!`
 	})
 })
@@ -79,7 +79,7 @@ exports.updateProject = asyncHandler(async (req, res) => {
 	// 	)
 	// }
 	res.status(200).json({
-		sucess: true,
+		success: true,
 		msg: `Project with an id of ${id} was updated successfully!`,
 		data: updatedProject,
 	})
@@ -100,7 +100,7 @@ exports.drop = asyncHandler(async (req, res) => {
 		}
 	})
 	res.status(200).json({
-		sucess: true,
+		success: true,
 		msg: `Dropped!`
 	})
 })

@@ -5,7 +5,7 @@ const client = new TelegramClient({
 })
 
 exports.sendMessage = async (req, res) => {
-	const { fullName, email, msg } = req.body
+	const { fullName, email, package, msg } = req.body
 
 	const fullMessage = `
         Client requsted for work.
@@ -14,7 +14,9 @@ exports.sendMessage = async (req, res) => {
 
         Email: ${email},
 
-        Message: ${msg} 
+		Selected Package: ${package}
+
+        Message: ${msg}
     `
 
 	await client.sendMessage("653709838", fullMessage)

@@ -2,6 +2,10 @@ const Newsletter = require("../../models/blogs/Newsletter")
 const asyncHandler = require("../../middleware/async")
 const ErrorResponse = require("../../utils/ErrorResponse")
 
+
+
+
+
 // @ROUTE         '/subscribers'
 // @DESC          Subscribe to newsletter
 // @METHOD        POST
@@ -11,12 +15,12 @@ exports.subscribeToNewsletter = asyncHandler(async (req, res) => {
 	const newSubscriber = await Newsletter.create(req.body)
 
 	if (!newSubscriber) {
-		new ErrorResponse("Subscriber is not added.", 500)
+		new ErrorResponse("Problem Occured.", 500)
 	}
 
 	res.status(200).json({
 		success: true,
-		data: newSubscriber
+		message: "Email has been added."
 	})
 })
 

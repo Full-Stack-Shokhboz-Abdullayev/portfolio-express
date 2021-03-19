@@ -22,7 +22,7 @@ const errorHandler = (err, req, res, next) => {
 		}
 	}
 	if (err.code === 11000) {
-		const message = `Duplicate field value entered: ${Object.keys(err.keyValue).join(', ')}`
+		const message = `Entered value is not unique: ${Object.keys(err.keyValue).join(', ')}!`
 		console.log(Object.keys(err))
 		error = new ErrorResponse(message, 400)
 	}

@@ -78,11 +78,10 @@ exports.postBlog = asyncHandler(async (req, res) => {
 	if (!newBlog) {
 		return next(new ErrorResponse(`Error can not add a blog!`, 500))
 	} else {
-		
 		const subscribers = await Newsletter.find({})
-		console.log(subscribers);
+		console.log(subscribers)
 		await sendMail({
-			email: subscribers.map((subscriber) => subscriber.email).join(', '),
+			email: subscribers.map((subscriber) => subscriber.email).join(", "),
 			subject: "New Post in shox-pro.com: " + newBlog.heading,
 			message: `${newBlog.tag} Full Post Can Be Read Here http://localhost:8080/blog/${newBlog.slug}
 			`
@@ -173,7 +172,7 @@ exports.drop = asyncHandler(async (req, res) => {
 		}
 	})
 	res.status(200).json({
-		sucess: true,
+		success: true,
 		msg: `Dropped!`
 	})
 })

@@ -42,9 +42,8 @@ const ProjectSchema = new mongoose.Schema({
 	],
 	image: {
 		type: String,
-		// required: [true, "Please fill in this field."],
-		// unique: true
-		default: "helooo.jpg"
+		required: [true, "Please fill in this field."],
+		unique: true
 	},
 	completedDate: { type: Date, default: Date.now }
 })

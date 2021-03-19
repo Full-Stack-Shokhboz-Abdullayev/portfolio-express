@@ -114,7 +114,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 			subject: "Password Reset"
 		})
 		res.status(200).json({
-			sucess: true,
+			success: true,
 			msg: "Email Sent"
 		})
 	} catch (err) {
@@ -193,7 +193,7 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
 	// )
 
 	res.status(200).json({
-		sucess: true,
+		success: true,
 		data: req.user
 	})
 })

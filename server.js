@@ -41,9 +41,9 @@ const corsOptions = {
 	// optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-// if (process.env.NODE_ENV === "production") {
-// 	corsOptions.origin = "https://shox-pro.com"
-// }
+if (process.env.NODE_ENV === "production") {
+	corsOptions.origin = "https://shox-pro.com"
+}
 
 app.use(cors(corsOptions))
 
