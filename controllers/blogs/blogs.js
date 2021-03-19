@@ -12,7 +12,7 @@ const sendMail = require("../../utils/sendEmail")
 // @ACCESS		  Public
 
 exports.getAllBlogs = asyncHandler(async (req, res) => {
-	const blogs = await Blog.find({}).sort({ sortDate: -1 }).select("-sortDate")
+	const blogs = await Blog.find({}, ).sort({ sortDate: -1 }).select(["-sortDate", "-content"])
 
 	console.log(blogs)
 	res.status(200).send({
@@ -32,7 +32,7 @@ exports.getLatestBlogs = asyncHandler(async (req, res) => {
 	const blogs = await Blog.find({})
 		.sort({ sortDate: -1 })
 		.limit(3)
-		.select("-sortDate")
+		.select(["-sortDate", "-content"])
 
 	res.status(200).send({
 		success: true,
