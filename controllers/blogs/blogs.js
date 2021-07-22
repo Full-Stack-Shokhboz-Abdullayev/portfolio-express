@@ -12,9 +12,10 @@ const sendMail = require("../../utils/sendEmail")
 // @ACCESS		  Public
 
 exports.getAllBlogs = asyncHandler(async (req, res) => {
-	const blogs = await Blog.find({}, ).sort({ sortDate: -1 }).select(["-sortDate"])
+	const blogs = await Blog.find({})
+		.sort({ sortDate: -1 })
+		.select(["-sortDate"])
 
-	console.log(blogs)
 	res.status(200).send({
 		success: true,
 		msg: "All Blogs were found.",

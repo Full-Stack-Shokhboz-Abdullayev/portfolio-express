@@ -31,10 +31,12 @@ const sendMail = async (options) => {
 		text: options.message // plain text body
 	}
 	console.log(message)
-
-	const info = await transporter.sendMail(message)
-
-	console.log("Message sent: %s", info.messageId)
+	try {
+		const info = await transporter.sendMail(message)
+		console.log("Message sent: %s", info.messageId)
+	} catch (err) {
+		console.log(err)
+	}
 }
 
 module.exports = sendMail
