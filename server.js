@@ -43,6 +43,8 @@ const corsOptions = {
 
 if (process.env.NODE_ENV === "production") {
 	corsOptions.origin = "https://shox-pro.com"
+} else if (process.env.NODE_ENV === "staging") {
+	corsOptions.origin = "https://passionate-person.netlify.app"
 }
 
 app.use(cors(corsOptions))
